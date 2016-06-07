@@ -3,7 +3,7 @@ lazy val shapeless = (project in file("."))
 .enablePlugins(ExerciseCompilerPlugin)
 .settings(
   organization := "org.scala-exercises",
-  name            := "content-shapeless",
+  name         := "exercises-shapeless",
   scalaVersion := "2.11.7",
   version := "0.0.0-SNAPSHOT",
   resolvers ++= Seq(
