@@ -5,6 +5,9 @@ package shapelessex
   * @param name shapeless
   */
 object ShapelessLib extends exercise.Library {
+  override def owner = "scala-exercises"
+  override def repository = "exercises-shapeless"
+
   override def color = Some("#6573C4")
 
   override def sections = List(
