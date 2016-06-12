@@ -24,6 +24,7 @@ object ShapelessLib extends exercise.Library {
     AutoTypeClassExercises,
     LazyExercises,
     SizedExercises,
-    TypeSafeCastExercises
+    TypeSafeCastExercises,
+    TypeCheckingExercises
   )
 }
