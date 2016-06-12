@@ -1,10 +1,7 @@
 package shapelessex
 
-import org.scalatest.FlatSpec
-import org.scalatest.Matchers
 import org.scalatest._
 import shapeless._
-import shapelessex.TypeCheckingExercises._
 
 import scala.util.Try
 
