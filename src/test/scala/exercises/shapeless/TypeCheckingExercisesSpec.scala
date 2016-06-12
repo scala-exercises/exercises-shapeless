@@ -1,7 +1,12 @@
-package test.scala.exercises.shapeless
+package exercises
 
-import exercises.Test
-import shapelessex.TypeCheckingExercises
+import shapelessex._
+import shapeless.HNil
+
+import org.scalatest.Spec
+import org.scalatest.prop.Checkers
+
+import org.scalacheck.Shapeless._
 
 class TypeCheckingExercisesSpec extends Spec with Checkers {
   def `testing for non-compilation` = {
