@@ -33,21 +33,10 @@ object TypeCheckingExercises extends FlatSpec with Matchers with exercise.Sectio
 
     import shapeless.test.illTyped
 
-    val matchedTypes = Try {
-      assertTypeError("illTyped { \"val a: Int = 1\" }")
-      true
-    } getOrElse {
-      false
-    }
+    val matchedTypes = Try { assertTypeError("illTyped { \"val a: Int = 1\" }") }.isSuccess
     matchedTypes should be(res0)
 
-    val mismatchedTypes = Try {
-      assertTypeError("illTyped { \"val a: String = 1\" }")
-      true
-    } getOrElse {
-      false
-    }
+    val mismatchedTypes = Try { assertTypeError("illTyped { \"val a: String = 1\" }") }.isSuccess
     mismatchedTypes should be(res1)
   }
-
 }
