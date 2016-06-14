@@ -53,7 +53,7 @@ object PolyExercises extends FlatSpec with Matchers with exercise.Section {
     * mapped across an ordinary Scala List
     */
   def exerciseMonomorphicChoose(res0: Option[Int], res1: Option[Int]) = {
-    (List(Set(1, 3, 5), Set(2, 4, 6)) map choose) should be(List(res1, res0))
+    (List(Set(1, 3, 5), Set(2, 4, 6)) map choose) should be(List(res0, res1))
   }
 
   /** However, they are [[http://www.chuusai.com/2012/05/10/shapeless-polymorphic-function-values-2/ more general than natural transformations]] and are able to capture type-specific cases
