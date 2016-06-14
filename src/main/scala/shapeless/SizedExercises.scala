@@ -3,6 +3,22 @@ package shapelessex
 import org.scalatest._
 import shapeless._
 
+object SizedHelper {
+  def row(cols: Seq[String]) =
+    cols.mkString("\"", "\", \"", "\"")
+
+  def csv[N <: Nat](hdrs: Sized[Seq[String], N], rows: List[Sized[Seq[String], N]]) =
+    row(hdrs) :: rows.map(row(_))
+
+  val hdrs = Sized("Title", "Author")
+
+  val rows = List(
+    Sized("Types and Programming Languages", "Benjamin Pierce"),
+    Sized("The Implementation of Functional Programming Languages", "Simon Peyton-Jones")
+  )
+}
+
+
 /** == Collections with statically known sizes ==
   *
   * shapeless provides collection types with statically known sizes. These can prevent runtime errors such as those that
@@ -27,23 +43,7 @@ import shapeless._
   * @param name sized
   */
 object SizedExercises extends FlatSpec with Matchers with exercise.Section {
-
-  object Helper {
-    def row(cols: Seq[String]) =
-      cols.mkString("\"", "\", \"", "\"")
-
-    def csv[N <: Nat](hdrs: Sized[Seq[String], N], rows: List[Sized[Seq[String], N]]) =
-      row(hdrs) :: rows.map(row(_))
-
-    val hdrs = Sized("Title", "Author")
-
-    val rows = List(
-      Sized("Types and Programming Languages", "Benjamin Pierce"),
-      Sized("The Implementation of Functional Programming Languages", "Simon Peyton-Jones")
-    )
-  }
-
-  import Helper._
+  import SizedHelper._
 
   /** In the example below we define a method `csv` whose signature guarantees at compile time that there are exactly as many
     * column headers provided as colums
