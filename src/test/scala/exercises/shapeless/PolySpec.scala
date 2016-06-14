@@ -31,7 +31,7 @@ class PolySpec extends Spec with Checkers {
     check(
       Test.testSuccess(
         PolyExercises.exerciseMonomorphicChoose _,
-        Option(2) :: Option(1) :: HNil
+        Option(1) :: Option(2) :: HNil
       )
     )
   }
