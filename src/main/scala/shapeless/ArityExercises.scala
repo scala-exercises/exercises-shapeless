@@ -3,6 +3,13 @@ package shapelessex
 import org.scalatest._
 import shapeless._
 import ops.hlist._
+import ops.function._
+import syntax.std.function._
+
+object Helper {
+  def applyProduct[P <: Product, F, L <: HList, R](p: P)(f: F)(implicit gen: Generic.Aux[P, L], fp: FnToProduct.Aux[F, L ⇒ R]) =
+    f.toProduct(gen.to(p))
+}
 
 /** == Facilities for abstracting over arity ==
   *
@@ -21,17 +28,6 @@ import ops.hlist._
   * @param name arity
   */
 object ArityExercises extends FlatSpec with Matchers with exercise.Section {
-
-  import syntax.std.function._
-  import ops.function._
-
-  object Helper {
-
-    def applyProduct[P <: Product, F, L <: HList, R](p: P)(f: F)(implicit gen: Generic.Aux[P, L], fp: FnToProduct.Aux[F, L ⇒ R]) =
-      f.toProduct(gen.to(p))
-
-  }
-
   import Helper._
 
   /** Abstracting over arity
