@@ -3,10 +3,34 @@ package shapelessex
 import org.scalatest._
 import shapeless._
 
+object GenericHelper {
+  case class Foo(i: Int, s: String, b: Boolean)
+
+  val fooGen = Generic[Foo]
+
+  val foo = Foo(23, "foo", true)
+
+  import poly._
+
+  // Simple recursive case class family
+  sealed trait Tree[T]
+  case class Leaf[T](t: T) extends Tree[T]
+  case class Node[T](left: Tree[T], right: Tree[T]) extends Tree[T]
+
+  // Polymorphic function which adds 1 to any Int and is the identity
+  // on all other values
+  // format: OFF
+  object inc extends -> ((i: Int) ⇒ i + 1)
+  // format: ON
+  case class Book(author: String, title: String, id: Int, price: Double)
+  case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
+}
+
+
 /** == Generic representation of (sealed families of) case classes ==
   *
   * The `Iso`s of earlier shapeless releases have been completely reworked as the new `Generic` type, which closely
-  * resembles the [generic programming capabilities introduced to GHC 7.2][ghcgeneric].
+  * resembles the [[https://wiki.haskell.org/GHC.Generics generic programming capabilities introduced to GHC 7.2]].
   *
   * `Generic[T]`, where `T` is a case class or an abstract type at the root of a case class hierarchy, maps between values
   * of `T` and a generic sum of products representation (`HList`s and `Coproduct`s),
@@ -14,32 +38,8 @@ import shapeless._
   * @param name generic
   */
 object GenericExercises extends FlatSpec with Matchers with exercise.Section {
+  import GenericHelper._
 
-  case class Foo(i: Int, s: String, b: Boolean)
-
-  object Helper {
-
-    val fooGen = Generic[Foo]
-
-    val foo = Foo(23, "foo", true)
-
-    import poly._
-
-    // Simple recursive case class family
-    sealed trait Tree[T]
-    case class Leaf[T](t: T) extends Tree[T]
-    case class Node[T](left: Tree[T], right: Tree[T]) extends Tree[T]
-
-    // Polymorphic function which adds 1 to any Int and is the identity
-    // on all other values
-    // format: OFF
-    object inc extends -> ((i: Int) ⇒ i + 1)
-    // format: ON
-    case class Book(author: String, title: String, id: Int, price: Double)
-    case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
-  }
-
-  import Helper._
   /** {{{
     * case class Foo(i: Int, s: String, b: Boolean)
     *
