@@ -8,7 +8,7 @@ import shapeless._
   * shapeless allows standard Scala tuples to be manipulated in exactly the same ways as `HList`s
   * @param name tuples
   */
-object TuplesExercises extends FlatSpec with Matchers with exercise.Section {
+object TuplesHListExercises extends FlatSpec with Matchers with exercise.Section {
 
   import syntax.std.tuple._
 
