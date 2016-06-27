@@ -10,12 +10,12 @@ import org.scalacheck.Shapeless._
 
 import shapeless.syntax.std.tuple._
 
-class TuplesExercisesSpec extends Spec with Checkers {
+class TuplesHListExercisesSpec extends Spec with Checkers {
 
   def `head op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.head _,
+        TuplesHListExercises.head _,
         23 :: HNil
       )
     )
@@ -24,7 +24,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `tail op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.tail _,
+        TuplesHListExercises.tail _,
         ("foo", true) :: HNil
       )
     )
@@ -33,7 +33,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `drop op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.drop _,
+        TuplesHListExercises.drop _,
         Tuple1(true) :: HNil
       )
     )
@@ -42,7 +42,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `take op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.take _,
+        TuplesHListExercises.take _,
         (23, "foo") :: HNil
       )
     )
@@ -53,7 +53,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `split op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.split _,
+        TuplesHListExercises.split _,
         (23, "foo", true).split(1) :: HNil
       )
     )
@@ -62,7 +62,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `prepend op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.prepend _,
+        TuplesHListExercises.prepend _,
         (23, "foo", true) :: HNil
       )
     )
@@ -71,7 +71,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `append op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.append _,
+        TuplesHListExercises.append _,
         (23, "foo", true) :: HNil
       )
     )
@@ -80,7 +80,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `concatenate op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.concatenate _,
+        TuplesHListExercises.concatenate _,
         (23, "foo", true, 2.0) :: HNil
       )
     )
@@ -89,7 +89,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `map op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.map _,
+        TuplesHListExercises.map _,
         (Option(23), Option("foo"), Option(true)) :: HNil
       )
     )
@@ -98,7 +98,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `flatMap op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.flatMap _,
+        TuplesHListExercises.flatMap _,
         (23, "foo", true, 2.0) :: HNil
       )
     )
@@ -107,7 +107,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `fold op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.fold _,
+        TuplesHListExercises.fold _,
         11 :: HNil
       )
     )
@@ -116,7 +116,7 @@ class TuplesExercisesSpec extends Spec with Checkers {
   def `toHList op` = {
     check(
       Test.testSuccess(
-        TuplesExercises.toHList _,
+        TuplesHListExercises.toHList _,
         { 23 :: "foo" :: true :: HNil } :: HNil
       )
     )
