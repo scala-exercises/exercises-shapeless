@@ -41,7 +41,7 @@ object TuplesHListExercises extends FlatSpec with Matchers with exercise.Section
 
   /** split
     */
-  def split(res0: ((Int), (String, Boolean))) = {
+  def split(res0: (Tuple1[Int], (String, Boolean))) = {
     (23, "foo", true).split(1) should be(res0)
   }
 
