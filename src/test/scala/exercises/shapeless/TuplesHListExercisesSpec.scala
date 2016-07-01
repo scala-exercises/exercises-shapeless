@@ -48,8 +48,6 @@ class TuplesHListExercisesSpec extends Spec with Checkers {
     )
   }
 
-  /* TODO could not find implicit value for parameter fntop: shapeless.ops.function.FnToProduct.Aux[((Int, (String, Boolean))) => Unit,shapeless.::[((Int,), (String, Boolean)),shapeless.HNil] => R]
-
   def `split op` = {
     check(
       Test.testSuccess(
@@ -57,7 +55,7 @@ class TuplesHListExercisesSpec extends Spec with Checkers {
         (23, "foo", true).split(1) :: HNil
       )
     )
-   }*/
+  }
 
   def `prepend op` = {
     check(
