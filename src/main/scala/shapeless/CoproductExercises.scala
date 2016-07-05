@@ -11,7 +11,7 @@ import shapeless._
   *
   * @param name coproducts
   */
-object CoproductExercises extends FlatSpec with Matchers with exercise.Section {
+object CoproductExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object Helper {
     type ISB = Int :+: String :+: Boolean :+: CNil

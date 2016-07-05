@@ -136,7 +136,7 @@ object MonoidSyntax {
   * @param name auto_typeclass_derivation
   *
   */
-object AutoTypeClassExercises extends FlatSpec with Matchers with exercise.Section {
+object AutoTypeClassExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object Helper {
 

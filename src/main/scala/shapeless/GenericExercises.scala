@@ -37,7 +37,7 @@ object GenericHelper {
   *
   * @param name generic
   */
-object GenericExercises extends FlatSpec with Matchers with exercise.Section {
+object GenericExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
   import GenericHelper._
 
   /** {{{

@@ -23,7 +23,7 @@ import scala.util.Try
   *
   * @param name type_checking
   */
-object TypeCheckingExercises extends FlatSpec with Matchers with exercise.Section {
+object TypeCheckingExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   /** The testing library ScalaTest also has a way of checking that a snippet of code
     * does not compile: pass it in to `assertTypeError`. What will happen if we combine

@@ -4,7 +4,7 @@ package shapelessex
   *
   * @param name shapeless
   */
-object ShapelessLib extends exercise.Library {
+object ShapelessLib extends org.scalaexercises.definitions.Library {
   override def owner = "scala-exercises"
   override def repository = "exercises-shapeless"
 

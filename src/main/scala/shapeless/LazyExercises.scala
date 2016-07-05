@@ -18,7 +18,7 @@ import shapeless._
   *
   * @param name lazy
   */
-object LazyExercises extends FlatSpec with Matchers with exercise.Section {
+object LazyExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object Helper {
 

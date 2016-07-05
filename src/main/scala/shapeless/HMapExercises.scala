@@ -19,7 +19,7 @@ import ops.hlist._
   *
   * @param name HMap
   */
-object HMapExercises extends FlatSpec with Matchers with exercise.Section {
+object HMapExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object Helper {
     class BiMapIS[K, V]

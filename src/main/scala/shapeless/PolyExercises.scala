@@ -11,7 +11,7 @@ import poly.{ ~> }
   *
   * @param name polymorphic_function_values
   */
-object PolyExercises extends FlatSpec with Matchers with exercise.Section {
+object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object choose extends (Set ~> Option) {
     def apply[T](s: Set[T]) = s.headOption

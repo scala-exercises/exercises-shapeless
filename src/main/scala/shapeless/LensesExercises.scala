@@ -26,7 +26,7 @@ import shapeless._
   *
   * @param name lenses
   */
-object LensesExercises extends FlatSpec with Matchers with exercise.Section {
+object LensesExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object Helper {
     // A pair of ordinary case classes ...

@@ -12,7 +12,7 @@ import shapeless._
   *
   * @param name type_safe_cast
   */
-object TypeSafeCastExercises extends FlatSpec with Matchers with exercise.Section {
+object TypeSafeCastExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   /**
     */
