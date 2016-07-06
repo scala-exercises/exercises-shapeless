@@ -27,7 +27,7 @@ object Helper {
   *
   * @param name arity
   */
-object ArityExercises extends FlatSpec with Matchers with exercise.Section {
+object ArityExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
   import Helper._
 
   /** Abstracting over arity

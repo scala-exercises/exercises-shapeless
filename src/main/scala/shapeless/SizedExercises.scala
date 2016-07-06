@@ -42,7 +42,7 @@ object SizedHelper {
   *
   * @param name sized
   */
-object SizedExercises extends FlatSpec with Matchers with exercise.Section {
+object SizedExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
   import SizedHelper._
 
   /** In the example below we define a method `csv` whose signature guarantees at compile time that there are exactly as many

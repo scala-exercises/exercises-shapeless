@@ -24,7 +24,7 @@ import ops.hlist._
   * @param name extensible_records
   *
   */
-object ExtensibleRecordsExercises extends FlatSpec with Matchers with exercise.Section {
+object ExtensibleRecordsExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   import shapeless._; import syntax.singleton._; import record._
 

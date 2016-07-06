@@ -37,7 +37,7 @@ object CovariantHelper {
   *
   * @param name heterogenous_lists
   */
-object HListExercises extends FlatSpec with Matchers with exercise.Section {
+object HListExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   /** It has a `map` operation, applying a polymorphic function value across its elements. This means that it subsumes both
     * typical `HList`'s and also `KList`'s (`HList`'s whose elements share a common outer type constructor).

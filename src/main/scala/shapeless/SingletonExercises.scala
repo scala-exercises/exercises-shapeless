@@ -12,7 +12,7 @@ import shapeless._
   * @param name singletons_literals
   *
   */
-object SingletonExercises extends FlatSpec with Matchers with exercise.Section {
+object SingletonExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   /** Singleton types bridge the gap between the value level and the type level and hence allow the exploration in Scala
     * of techniques which would typically only be available in languages with support for full-spectrum dependent types.
