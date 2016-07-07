@@ -17,7 +17,7 @@ object ShapelessLib extends org.scalaexercises.definitions.Library {
     ArityExercises,
     HMapExercises,
     SingletonExercises,
-    ExtensibleRecordsExercises,
+//  ExtensibleRecordsExercises,
     CoproductExercises,
     GenericExercises,
     LensesExercises,
