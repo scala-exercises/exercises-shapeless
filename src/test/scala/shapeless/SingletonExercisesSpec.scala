@@ -1,13 +1,10 @@
-package exercises
-
-import shapelessex._
-import shapeless.HNil
-
-import org.scalatest.Spec
-import org.scalatest.prop.Checkers
+package shapeless
 
 import org.scalacheck.Shapeless._
-import shapeless._, syntax.singleton._
+import org.scalaexercises.Test
+import org.scalatest.Spec
+import org.scalatest.prop.Checkers
+import shapelessex._
 
 class SingletonExercisesSpec extends Spec with Checkers {
 
