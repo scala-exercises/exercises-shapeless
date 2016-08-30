@@ -33,14 +33,7 @@ object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.defi
   }
 
   /** Being polymorphic, they may be passed as arguments to functions or methods and then applied to values of different types
-    * within those functions,
-    *
-    * {{{
-    * scala> def pairApply(f: Set ~> Option) = (f(Set(1, 2, 3)), f(Set('a', 'b', 'c')))
-    * pairApply: (f: shapeless.poly.~>[Set,Option])(Option[Int], Option[Char])
-    * scala> pairApply(choose)
-    * res2: (Option[Int], Option[Char]) = (Some(1),Some(a))
-    * }}}
+    * within those functions
     */
   def exercisePairApply(res0: Option[Int], res1: Option[Char]) = {
     def pairApply(f: Set ~> Option) = (f(Set(1, 2, 3)), f(Set('a', 'b', 'c')))
