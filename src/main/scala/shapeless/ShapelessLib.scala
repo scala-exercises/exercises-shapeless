@@ -27,4 +27,6 @@ object ShapelessLib extends org.scalaexercises.definitions.Library {
     TypeSafeCastExercises,
     TypeCheckingExercises
   )
+
+  override def logoPath = "shapeless"
 }
