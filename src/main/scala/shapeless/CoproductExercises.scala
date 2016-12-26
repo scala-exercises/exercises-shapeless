@@ -60,7 +60,7 @@ object CoproductExercises extends FlatSpec with Matchers with org.scalaexercises
   def unionE(res0: Option[Int], res1: Option[String], res2: Option[Boolean]) = {
     import record._, union._, syntax.singleton._
 
-    type U = Union.`'i -> String, 's -> String, 'b -> Boolean`.T
+    type U = Union.`'i -> Int, 's -> String, 'b -> Boolean`.T
 
     val u = Coproduct[U]('s ->> "foo") // Inject a String into the union at label 's
 
