@@ -22,11 +22,11 @@ object SingletonExercises extends FlatSpec with Matchers with org.scalaexercises
   def indexHListAndTuples(res0: String, res1: String) = {
     import syntax.std.tuple._
 
-    val l = 23 :: "foo" :: true :: HNil
-    l(1) should be(res0)
+    val hlist = 23 :: "foo" :: true :: HNil
+    hlist(1) should be(res0)
 
-    val t = (23, "foo", true)
-    t(1) should be(res1)
+    val tuple = (23, "foo", true)
+    tuple(1) should be(res1)
   }
 
   import shapeless._, syntax.singleton._
