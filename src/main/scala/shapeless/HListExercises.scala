@@ -142,7 +142,7 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
     * normally the full type information required to work with them is too fragile to cross subtyping or I/O boundaries.
     * This implementation supports the discarding of precise information where necessary.
     * (eg. to serialize a precisely typed record after construction), and its later reconstruction.
-    * (eg. a weakly typed deserialized record with a known schema can have it's precise typing reestabilished).
+    * (eg. a weakly typed deserialized record with a known schema can have its precise typing reestablished).
     */
   def exerciseTypeable(res0: Option[APAP]) = {
     import syntax.typeable._
