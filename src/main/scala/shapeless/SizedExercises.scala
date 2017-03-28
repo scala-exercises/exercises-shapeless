@@ -1,3 +1,8 @@
+/*
+ * scala-exercises - exercises-shapeless
+ * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ */
+
 package shapelessex
 
 import org.scalatest._
@@ -18,37 +23,36 @@ object SizedHelper {
   )
 }
 
-
 /** == Collections with statically known sizes ==
-  *
-  * shapeless provides collection types with statically known sizes. These can prevent runtime errors such as those that
-  * would result from attempting to take the head of an empty list, and can also verify more complex relationships.
-  *
-  * {{{
-  * def row(cols : Seq[String]) =
-  * cols.mkString("\\"", "\\", \\"", "\\"")
-  *
-  * def csv[N <: Nat]
-  * (hdrs : Sized[Seq[String], N],
-  * rows : List[Sized[Seq[String], N]]) = row(hdrs) :: rows.map(row(_))
-  *
-  * val hdrs = Sized("Title", "Author")
-  *
-  * val rows = List(
-  * Sized("Types and Programming Languages", "Benjamin Pierce"),
-  * Sized("The Implementation of Functional Programming Languages", "Simon Peyton-Jones")
-  * )
-  * }}}
-  *
-  * @param name sized
-  */
+ *
+ * shapeless provides collection types with statically known sizes. These can prevent runtime errors such as those that
+ * would result from attempting to take the head of an empty list, and can also verify more complex relationships.
+ *
+ * {{{
+ * def row(cols : Seq[String]) =
+ * cols.mkString("\\"", "\\", \\"", "\\"")
+ *
+ * def csv[N <: Nat]
+ * (hdrs : Sized[Seq[String], N],
+ * rows : List[Sized[Seq[String], N]]) = row(hdrs) :: rows.map(row(_))
+ *
+ * val hdrs = Sized("Title", "Author")
+ *
+ * val rows = List(
+ * Sized("Types and Programming Languages", "Benjamin Pierce"),
+ * Sized("The Implementation of Functional Programming Languages", "Simon Peyton-Jones")
+ * )
+ * }}}
+ *
+ * @param name sized
+ */
 object SizedExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
   import SizedHelper._
 
   /** In the example below we define a method `csv` whose signature guarantees at compile time that there are exactly as many
-    * column headers provided as colums
-    * TODO : what would be a good exercise for stuff that can only be proven at compile time???
-    */
+   * column headers provided as colums
+   * TODO : what would be a good exercise for stuff that can only be proven at compile time???
+   */
   def sizedEx(res0: Int) = {
 
     // hdrs and rows statically known to have the same number of columns

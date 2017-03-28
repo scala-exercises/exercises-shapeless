@@ -1,3 +1,8 @@
+/*
+ * scala-exercises - exercises-shapeless
+ * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ */
+
 package shapeless
 
 import org.scalacheck.Shapeless._
@@ -118,4 +123,3 @@ class TuplesHListExercisesSpec extends Spec with Checkers {
   }
 
 }
-
