@@ -1,3 +1,8 @@
+/*
+ * scala-exercises - exercises-shapeless
+ * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ */
+
 package shapeless
 
 import org.scalacheck.Shapeless._
@@ -26,7 +31,7 @@ class SingletonExercisesSpec extends Spec with Checkers {
     )
   }
 
-  // TODO disabled until divergent implicit expansion is fixed for singleton types on scalacheck-shapeless int lib 
+  // TODO disabled until divergent implicit expansion is fixed for singleton types on scalacheck-shapeless int lib
   //   https://gitter.im/milessabin/shapeless?at=56fcf50fbbffcc665faad6e5
   /*  def `narrow 1` = {
     check(
