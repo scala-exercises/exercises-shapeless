@@ -1,3 +1,8 @@
+/*
+ * scala-exercises - exercises-shapeless
+ * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ */
+
 package shapelessex
 
 import org.scalatest._
@@ -5,7 +10,7 @@ import shapeless._
 import ops.hlist._
 
 object size extends Poly1 {
-  implicit def caseInt = at[Int](x ⇒ 1)
+  implicit def caseInt    = at[Int](x ⇒ 1)
   implicit def caseString = at[String](_.length)
   implicit def caseTuple[T, U](implicit st: Case.Aux[T, Int], su: Case.Aux[U, Int]) =
     at[(T, U)](t ⇒ size(t._1) + size(t._2))
@@ -13,35 +18,37 @@ object size extends Poly1 {
 
 object addSize extends Poly2 {
   implicit def default[T](implicit st: shapelessex.size.Case.Aux[T, Int]) =
-    at[Int, T] { (acc, t) ⇒ acc + size(t) }
+    at[Int, T] { (acc, t) ⇒
+      acc + size(t)
+    }
 }
 
 object CovariantHelper {
 
   trait Fruit
   case class Apple() extends Fruit
-  case class Pear() extends Fruit
+  case class Pear()  extends Fruit
 
   type FFFF = Fruit :: Fruit :: Fruit :: Fruit :: HNil
   type APAP = Apple :: Pear :: Apple :: Pear :: HNil
 
   val a: Apple = Apple()
-  val p: Pear = Pear()
+  val p: Pear  = Pear()
 
   val apap: APAP = a :: p :: a :: p :: HNil
 }
 
 /** == Heterogenous lists ==
-  *
-  * shapeless provides a comprehensive Scala `HList` which has many features not shared by other HList implementations.
-  *
-  * @param name heterogenous_lists
-  */
+ *
+ * shapeless provides a comprehensive Scala `HList` which has many features not shared by other HList implementations.
+ *
+ * @param name heterogenous_lists
+ */
 object HListExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   /** It has a `map` operation, applying a polymorphic function value across its elements. This means that it subsumes both
-    * typical `HList`'s and also `KList`'s (`HList`'s whose elements share a common outer type constructor).
-    */
+   * typical `HList`'s and also `KList`'s (`HList`'s whose elements share a common outer type constructor).
+   */
   def exerciseMap(res0: Option[Int], res1: Option[String]) = {
     import poly._
 
@@ -57,7 +64,7 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
   }
 
   /** It also has a flatMap Operation
-    */
+   */
   def exerciseFlatMap(res0: Int, res1: String, res2: Boolean) = {
     import poly.identity
 
@@ -68,14 +75,14 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
   }
 
   /** It has a set of fully polymorphic fold operations which take a polymorphic binary function value. The fold is sensitive
-    * to the static types of all of the elements of the `HList`. Given the earlier definition of size,
-    * {{{
-    * object addSize extends Poly2 {
-    * implicit  def default[T](implicit st: shapelessex.size.Case.Aux[T, Int]) =
-    * at[Int, T]{ (acc, t) => acc+size(t) }
-    * }
-    * }}}
-    */
+   * to the static types of all of the elements of the `HList`. Given the earlier definition of size,
+   * {{{
+   * object addSize extends Poly2 {
+   * implicit  def default[T](implicit st: shapelessex.size.Case.Aux[T, Int]) =
+   * at[Int, T]{ (acc, t) => acc+size(t) }
+   * }
+   * }}}
+   */
   def exerciseFold(res0: Int) = {
 
     val l = 23 :: "foo" :: (13, "wibble") :: HNil
@@ -85,7 +92,7 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
   }
 
   /** It also has a zipper for traversal and persistent update,
-    */
+   */
   def exerciseZipper(res0: Int, res1: (String, Int), res2: Double, res3: Int, res4: Double) = {
     import syntax.zipper._
 
@@ -99,24 +106,24 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
   import CovariantHelper._
 
   /** It is covariant,
-    * {{{
-    * object CovariantHelper {
-    *
-    * trait Fruit
-    * case class Apple() extends Fruit
-    * case class Pear() extends Fruit
-    *
-    * type FFFF = Fruit :: Fruit :: Fruit :: Fruit :: HNil
-    * type APAP = Apple :: Pear :: Apple :: Pear :: HNil
-    *
-    * val a : Apple = Apple()
-    * val p : Pear = Pear()
-    *
-    * val apap : APAP = a :: p :: a :: p :: HNil
-    *
-    * }
-    * }}}
-    */
+   * {{{
+   * object CovariantHelper {
+   *
+   * trait Fruit
+   * case class Apple() extends Fruit
+   * case class Pear() extends Fruit
+   *
+   * type FFFF = Fruit :: Fruit :: Fruit :: Fruit :: HNil
+   * type APAP = Apple :: Pear :: Apple :: Pear :: HNil
+   *
+   * val a : Apple = Apple()
+   * val p : Pear = Pear()
+   *
+   * val apap : APAP = a :: p :: a :: p :: HNil
+   *
+   * }
+   * }}}
+   */
   def exerciseCovariant(res0: Boolean) = {
     import scala.reflect.runtime.universe._
 
@@ -124,17 +131,16 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
   }
 
   /** And it has a unify operation which converts it to an HList of elements of the least upper bound of the original types,
-    */
+   */
   def exerciseUnify(res0: Boolean, res1: Boolean) = {
     apap.isInstanceOf[FFFF] should be(res0)
     apap.unify.isInstanceOf[FFFF] should be(res1)
   }
 
   /** It supports conversion to an ordinary Scala `List` of elements of the least upper bound of the original types,
-    */
-  def exerciseConversionToList(res0: List[Fruit]) = {
+   */
+  def exerciseConversionToList(res0: List[Fruit]) =
     apap.toList should be(res0)
-  }
 
   /** And it has a `Typeable` type class instance (see below), allowing, eg. vanilla `List[Any]`'s or `HList`'s with
     * elements of type `Any` to be safely cast to precisely typed `HList`'s.
@@ -147,7 +153,7 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
   def exerciseTypeable(res0: Option[APAP]) = {
     import syntax.typeable._
 
-    val ffff: FFFF = apap.unify
+    val ffff: FFFF            = apap.unify
     val precise: Option[APAP] = ffff.cast[APAP]
 
     precise should be(res0)

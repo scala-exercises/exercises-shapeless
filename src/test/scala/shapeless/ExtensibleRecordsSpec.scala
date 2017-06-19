@@ -1,3 +1,8 @@
+/*
+ * scala-exercises - exercises-shapeless
+ * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ */
+
 package shapeless
 
 import org.scalacheck.Shapeless._
@@ -29,7 +34,9 @@ class ExtensibleRecordsSpec extends Spec with Checkers {
     check(
       Test.testSuccess(
         ExtensibleRecordsExercises.updated _,
-        46.11 :: true :: { "Benjamin Pierce" :: "Types and Programming Languages" :: 46.11 :: true :: HNil } :: HNil
+        46.11 :: true :: {
+          "Benjamin Pierce" :: "Types and Programming Languages" :: 46.11 :: true :: HNil
+        } :: HNil
       )
     )
   }
