@@ -22,7 +22,7 @@ object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.defi
     def apply[T](s: Seq[T]) = s.headOption
   }
 
-  /** `choose` is a function from Sets to Options with no type specific cases
+  /** `choose` is a function from Seqs to Options with no type specific cases
    * {{{
    * object choose extends (Seq ~> Option) {
    * def apply[T](s : Seq[T]) = s.headOption
@@ -31,7 +31,7 @@ object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.defi
    */
   def exerciseChoose(res0: Option[Int], res1: Option[Char]) = {
     import shapeless.poly._
-    // choose is a function from Sets to Options with no type specific cases
+    // choose is a function from Seqs to Options with no type specific cases
 
     choose(Seq(1, 2, 3)) should be(res0)
     choose(Seq('a', 'b', 'c')) should be(res1)
@@ -41,7 +41,7 @@ object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.defi
    * within those functions
    */
   def exercisePairApply(res0: Option[Int], res1: Option[Char]) = {
-    def pairApply(f: Set ~> Option) = (f(Seq(1, 2, 3)), f(Seq('a', 'b', 'c')))
+    def pairApply(f: Seq ~> Option) = (f(Seq(1, 2, 3)), f(Seq('a', 'b', 'c')))
 
     pairApply(choose) should be(res0, res1)
   }
