@@ -1,6 +1,7 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
@@ -30,7 +31,6 @@ object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.defi
    * }}}
    */
   def exerciseChoose(res0: Option[Int], res1: Option[Char]) = {
-    import shapeless.poly._
     // choose is a function from Seqs to Options with no type specific cases
 
     choose(Seq(1, 2, 3)) should be(res0)
@@ -43,7 +43,7 @@ object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.defi
   def exercisePairApply(res0: Option[Int], res1: Option[Char]) = {
     def pairApply(f: Seq ~> Option) = (f(Seq(1, 2, 3)), f(Seq('a', 'b', 'c')))
 
-    pairApply(choose) should be(res0, res1)
+    pairApply(choose) should be((res0, res1))
   }
 
   /** They are nevertheless interoperable with ordinary monomorphic function values.

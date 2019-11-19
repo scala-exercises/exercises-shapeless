@@ -1,6 +1,7 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
@@ -41,10 +42,7 @@ object GenericHelper {
  *
  * @param name generic
  */
-object GenericExercises
-    extends FlatSpec
-    with Matchers
-    with org.scalaexercises.definitions.Section {
+object GenericExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
   import GenericHelper._
 
   /** {{{

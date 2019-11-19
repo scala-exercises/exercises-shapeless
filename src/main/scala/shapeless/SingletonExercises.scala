@@ -1,6 +1,7 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
@@ -37,7 +38,7 @@ object SingletonExercises
     tuple(1) should be(res1)
   }
 
-  import shapeless._, syntax.singleton._
+  import shapeless._
 
   /** The examples in the shapeless tests and the following illustrate other possibilities,
    * {{{

@@ -1,10 +1,12 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
 
+import scala.language.implicitConversions
 import org.scalatest._
 import shapeless._
 
@@ -167,7 +169,6 @@ object AutoTypeClassExercises
   def monoidDerivation(res0: Int, res1: String, res2: Boolean, res3: String, res4: Double) = {
 
     import MonoidSyntax._
-    import Monoid.typeClass._
 
     val fooCombined = Foo(13, "foo") |+| Foo(23, "bar")
     fooCombined should be(Foo(res0, res1))

@@ -1,6 +1,7 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
@@ -48,11 +49,10 @@ object LazyExercises extends FlatSpec with Matchers with org.scalaexercises.defi
       }
 
       // Case for Cons[T]: note (mutually) recursive implicit argument referencing Show[List[T]]
-      implicit def showCons[T](
-          implicit st: Lazy[Show[T]],
-          sl: Lazy[Show[List[T]]]): Show[Cons[T]] = new Show[Cons[T]] {
-        def apply(t: Cons[T]) = s"Cons(${show(t.hd)(st.value)}, ${show(t.tl)(sl.value)})"
-      }
+      implicit def showCons[T](implicit st: Lazy[Show[T]], sl: Lazy[Show[List[T]]]): Show[Cons[T]] =
+        new Show[Cons[T]] {
+          def apply(t: Cons[T]) = s"Cons(${show(t.hd)(st.value)}, ${show(t.tl)(sl.value)})"
+        }
 
       // Case for List[T]: note (mutually) recursive implicit argument referencing Show[Cons[T]]
       implicit def showList[T](implicit sc: Lazy[Show[Cons[T]]]): Show[List[T]] =
