@@ -1,6 +1,7 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
@@ -66,7 +67,7 @@ object CoproductExercises
    * adding labels to the elements of a Coproduct gives us a discriminated union.
    */
   def unionE(res0: Option[Int], res1: Option[String], res2: Option[Boolean]) = {
-    import record._, union._, syntax.singleton._
+    import union._, syntax.singleton._
 
     type U = Union.`'i -> Int, 's -> String, 'b -> Boolean`.T
 

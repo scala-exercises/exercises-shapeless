@@ -1,6 +1,7 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
@@ -45,8 +46,8 @@ object TypeSafeCastExercises
     val l              = List(1, 2, 3)
 
     val result = (l: Any) match {
-      case `List[String]`(List(s, _ *)) ⇒ s.length
-      case `List[Int]`(List(i, _ *))    ⇒ i + 1
+      case `List[String]`(List(s, _*)) ⇒ s.length
+      case `List[Int]`(List(i, _*))    ⇒ i + 1
     }
 
     result should be(res0)

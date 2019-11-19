@@ -1,13 +1,13 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
 
 import org.scalatest._
 import shapeless._
-import ops.hlist._
 
 object size extends Poly1 {
   implicit def caseInt    = at[Int](x ⇒ 1)
@@ -143,13 +143,13 @@ object HListExercises extends FlatSpec with Matchers with org.scalaexercises.def
     apap.toList should be(res0)
 
   /** And it has a `Typeable` type class instance (see below), allowing, eg. vanilla `List[Any]`'s or `HList`'s with
-    * elements of type `Any` to be safely cast to precisely typed `HList`'s.
-    * These last three features make this `HList` dramatically more practically useful than `HList`'s are typically thought to be:
-    * normally the full type information required to work with them is too fragile to cross subtyping or I/O boundaries.
-    * This implementation supports the discarding of precise information where necessary.
-    * (eg. to serialize a precisely typed record after construction), and its later reconstruction.
-    * (eg. a weakly typed deserialized record with a known schema can have its precise typing reestablished).
-    */
+   * elements of type `Any` to be safely cast to precisely typed `HList`'s.
+   * These last three features make this `HList` dramatically more practically useful than `HList`'s are typically thought to be:
+   * normally the full type information required to work with them is too fragile to cross subtyping or I/O boundaries.
+   * This implementation supports the discarding of precise information where necessary.
+   * (eg. to serialize a precisely typed record after construction), and its later reconstruction.
+   * (eg. a weakly typed deserialized record with a known schema can have its precise typing reestablished).
+   */
   def exerciseTypeable(res0: Option[APAP]) = {
     import syntax.typeable._
 

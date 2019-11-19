@@ -1,13 +1,13 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ *  scala-exercises - exercises-shapeless
+ *  Copyright (C) 2015-2019 47 Degrees, LLC. <http://www.47deg.com>
+ *
  */
 
 package shapelessex
 
 import org.scalatest._
 import shapeless._
-import ops.hlist._
 import ops.function._
 import syntax.std.function._
 
@@ -39,8 +39,8 @@ object ArityExercises extends FlatSpec with Matchers with org.scalaexercises.def
   /** Abstracting over arity
    */
   def arityTest(res0: Int, res1: Int) = {
-    applyProduct(1, 2)((_: Int) + (_: Int)) should be(res0)
-    applyProduct(1, 2, 3)((_: Int) * (_: Int) * (_: Int)) should be(res1)
+    applyProduct((1, 2))((_: Int) + (_: Int)) should be(res0)
+    applyProduct((1, 2, 3))((_: Int) * (_: Int) * (_: Int)) should be(res1)
   }
 
 }
