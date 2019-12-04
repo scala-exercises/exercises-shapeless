@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 import ops.function._
 import syntax.std.function._
@@ -33,7 +34,10 @@ object Helper {
  *
  * @param name arity
  */
-object ArityExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
+object ArityExercises
+    extends AnyFlatSpec
+    with Matchers
+    with org.scalaexercises.definitions.Section {
   import Helper._
 
   /** Abstracting over arity

@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /** == Type safe cast ==
@@ -19,7 +20,7 @@ import shapeless._
  * @param name type_safe_cast
  */
 object TypeSafeCastExercises
-    extends FlatSpec
+    extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
 
