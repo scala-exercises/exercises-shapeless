@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /** == Coproducts and discriminated unions ==
@@ -18,7 +19,7 @@ import shapeless._
  * @param name coproducts
  */
 object CoproductExercises
-    extends FlatSpec
+    extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
 

@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
 import scala.util.Try
 
@@ -29,7 +30,7 @@ import scala.util.Try
  * @param name type_checking
  */
 object TypeCheckingExercises
-    extends FlatSpec
+    extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
 

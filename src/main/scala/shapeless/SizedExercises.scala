@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 object SizedHelper {
@@ -47,7 +48,10 @@ object SizedHelper {
  *
  * @param name sized
  */
-object SizedExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
+object SizedExercises
+    extends AnyFlatSpec
+    with Matchers
+    with org.scalaexercises.definitions.Section {
   import SizedHelper._
 
   /** In the example below we define a method `csv` whose signature guarantees at compile time that there are exactly as many

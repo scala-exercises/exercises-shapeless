@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 import poly.{~>}
 
@@ -17,7 +18,7 @@ import poly.{~>}
  *
  * @param name polymorphic_function_values
  */
-object PolyExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
+object PolyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object choose extends (Seq ~> Option) {
     def apply[T](s: Seq[T]) = s.headOption

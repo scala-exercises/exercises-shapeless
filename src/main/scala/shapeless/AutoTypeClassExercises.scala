@@ -7,7 +7,8 @@
 package shapelessex
 
 import scala.language.implicitConversions
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 trait Monoid[T] {
@@ -145,7 +146,7 @@ object MonoidSyntax {
  *
  */
 object AutoTypeClassExercises
-    extends FlatSpec
+    extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
 

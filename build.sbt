@@ -14,7 +14,8 @@ lazy val shapeless = (project in file("."))
       %%("shapeless", V.shapeless),
       %%("scalatest", V.scalatest),
       %%("scalacheck", V.scalacheck),
-      "com.github.alexarchambault" %% "scalacheck-shapeless_1.14" % V.scalacheckShapeless
+      "com.github.alexarchambault" %% "scalacheck-shapeless_1.14" % V.scalacheckShapeless,
+      "org.scalatestplus"          %% "scalatestplus-scalacheck"    % V.scalatestplusScheck
     )
   )
 

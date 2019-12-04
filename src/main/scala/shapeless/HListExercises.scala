@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 object size extends Poly1 {
@@ -44,7 +45,10 @@ object CovariantHelper {
  *
  * @param name heterogenous_lists
  */
-object HListExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
+object HListExercises
+    extends AnyFlatSpec
+    with Matchers
+    with org.scalaexercises.definitions.Section {
 
   /** It has a `map` operation, applying a polymorphic function value across its elements. This means that it subsumes both
    * typical `HList`'s and also `KList`'s (`HList`'s whose elements share a common outer type constructor).

@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /** == Heterogenous maps ==
@@ -24,7 +25,7 @@ import shapeless._
  *
  * @param name HMap
  */
-object HMapExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
+object HMapExercises extends AnyFlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object Helper {
     class BiMapIS[K, V]

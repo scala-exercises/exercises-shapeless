@@ -6,7 +6,8 @@
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /** == First class lazy values tie implicit recursive knots ==
@@ -24,7 +25,7 @@ import shapeless._
  *
  * @param name lazy
  */
-object LazyExercises extends FlatSpec with Matchers with org.scalaexercises.definitions.Section {
+object LazyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
   object Helper {
 
