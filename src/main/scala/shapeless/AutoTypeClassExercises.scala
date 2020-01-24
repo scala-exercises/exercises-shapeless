@@ -50,7 +50,7 @@ object Monoid extends ProductTypeClassCompanion[Monoid] {
       def append(a: F :: T, b: F :: T) = mh.append(a.head, b.head) :: mt.append(a.tail, b.tail)
     }
 
-    def project[F, G](instance: ⇒ Monoid[G], to: F ⇒ G, from: G ⇒ F) = new Monoid[F] {
+    def project[F, G](instance: => Monoid[G], to: F => G, from: G => F) = new Monoid[F] {
       def zero               = from(instance.zero)
       def append(a: F, b: F) = from(instance.append(to(a), to(b)))
     }
