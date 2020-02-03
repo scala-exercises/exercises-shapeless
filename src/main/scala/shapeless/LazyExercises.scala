@@ -59,8 +59,8 @@ object LazyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
       implicit def showList[T](implicit sc: Lazy[Show[Cons[T]]]): Show[List[T]] =
         new Show[List[T]] {
           def apply(t: List[T]) = t match {
-            case n: Nil     ⇒ show(n)
-            case c: Cons[T] ⇒ show(c)(sc.value)
+            case n: Nil     => show(n)
+            case c: Cons[T] => show(c)(sc.value)
           }
         }
     }

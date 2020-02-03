@@ -1,6 +1,6 @@
 language: scala
 scala:
-- 2.11.11
+- 2.13.1
 jdk:
 - openjdk8
 script:

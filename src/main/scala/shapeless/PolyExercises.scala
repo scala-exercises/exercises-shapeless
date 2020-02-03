@@ -62,10 +62,10 @@ object PolyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
   def exerciseSize(res0: Int, res1: Int, res2: Int, res3: Int) = {
 
     object size extends Poly1 {
-      implicit def caseInt    = at[Int](x ⇒ 1)
+      implicit def caseInt    = at[Int](x => 1)
       implicit def caseString = at[String](_.length)
       implicit def caseTuple[T, U](implicit st: Case.Aux[T, Int], su: Case.Aux[U, Int]) =
-        at[(T, U)](t ⇒ size(t._1) + size(t._2))
+        at[(T, U)](t => size(t._1) + size(t._2))
     }
 
     size(23) should be(res0)

@@ -27,7 +27,7 @@ object GenericHelper {
   // Polymorphic function which adds 1 to any Int and is the identity
   // on all other values
   // format: OFF
-  object inc extends -> ((i: Int) ⇒ i + 1)
+  object inc extends -> ((i: Int) => i + 1)
   // format: ON
   case class Book(author: String, title: String, id: Int, price: Double)
   case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
@@ -124,21 +124,19 @@ object GenericExercises
     val tapl    = Book("Benjamin Pierce", "Types and Programming Languages", 262162091, 44.11)
     val rec     = bookGen.to(tapl)
 
-    rec('price) should be(res0)
+    rec(Symbol("price")) should be(res0)
 
-    val updatedBook = bookGen.from(rec.updateWith('price)(_ + 2.0))
+    val updatedBook = bookGen.from(rec.updateWith(Symbol("price"))(_ + 2.0))
 
     updatedBook.price should be(res1)
 
-    /** {{{
-     * case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
-     * }}}
-     */
+    // case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
+
     import syntax.singleton._
 
     val bookExtGen = LabelledGeneric[ExtendedBook]
 
-    val extendedBook = bookExtGen.from(rec + ('inPrint ->> true))
+    val extendedBook = bookExtGen.from(rec + (Symbol("inPrint") ->> true))
 
     extendedBook.inPrint should be(res2)
   }

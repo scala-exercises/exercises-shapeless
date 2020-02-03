@@ -29,7 +29,8 @@ object TypeSafeCastExercises
   def typesafeCast(
       res0: Option[List[Vector[String]]],
       res1: Option[List[Vector[Int]]],
-      res2: Option[List[List[String]]]) = {
+      res2: Option[List[List[String]]]
+  ) = {
     import syntax.typeable._
 
     val l: Any = List(Vector("foo", "bar", "baz"), Vector("wibble"))
@@ -47,8 +48,8 @@ object TypeSafeCastExercises
     val l              = List(1, 2, 3)
 
     val result = (l: Any) match {
-      case `List[String]`(List(s, _*)) ⇒ s.length
-      case `List[Int]`(List(i, _*))    ⇒ i + 1
+      case `List[String]`(List(s, _*)) => s.length
+      case `List[Int]`(List(i, _*))    => i + 1
     }
 
     result should be(res0)
