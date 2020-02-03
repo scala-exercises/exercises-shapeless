@@ -27,9 +27,9 @@ object CoproductExercises
     type ISB = Int :+: String :+: Boolean :+: CNil
 
     object sizeM extends Poly1 {
-      implicit def caseInt     = at[Int](i ⇒ (i, i))
-      implicit def caseString  = at[String](s ⇒ (s, s.length))
-      implicit def caseBoolean = at[Boolean](b ⇒ (b, 1))
+      implicit def caseInt     = at[Int](i => (i, i))
+      implicit def caseString  = at[String](s => (s, s.length))
+      implicit def caseBoolean = at[Boolean](b => (b, 1))
     }
 
     val isb = Coproduct[ISB]("foo")
@@ -72,11 +72,11 @@ object CoproductExercises
 
     type U = Union.`'i -> Int, 's -> String, 'b -> Boolean`.T
 
-    val u = Coproduct[U]('s ->> "foo") // Inject a String into the union at label 's
+    val u = Coproduct[U](Symbol("s") ->> "foo") // Inject a String into the union at label 's
 
-    u.get('i) should be(res0)
-    u.get('s) should be(res1)
-    u.get('b) should be(res2)
+    u.get(Symbol("i")) should be(res0)
+    u.get(Symbol("s")) should be(res1)
+    u.get(Symbol("b")) should be(res2)
   }
 
 }
