@@ -19,9 +19,7 @@ object size extends Poly1 {
 
 object addSize extends Poly2 {
   implicit def default[T](implicit st: shapelessex.size.Case.Aux[T, Int]) =
-    at[Int, T] { (acc, t) =>
-      acc + size(t)
-    }
+    at[Int, T]((acc, t) => acc + size(t))
 }
 
 object CovariantHelper {
