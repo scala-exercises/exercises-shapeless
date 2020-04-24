@@ -107,9 +107,7 @@ object TuplesHListExercises
 
   object addSize extends Poly2 {
     implicit def default[T](implicit st: sizeOf.Case.Aux[T, Int]) =
-      at[Int, T] { (acc, t) =>
-        acc + sizeOf(t)
-      }
+      at[Int, T]((acc, t) => acc + sizeOf(t))
   }
 
   /** fold
