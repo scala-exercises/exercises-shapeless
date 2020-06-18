@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ import org.scalatest.matchers.should.Matchers
 
 import scala.util.Try
 
-/** == Testing for non-compilation ==
+/**
+ * == Testing for non-compilation ==
  *
  * Libraries like shapeless which make extensive use of type-level computation and implicit resolution often need to
  * provide guarantees that certain expressions *don't* typecheck. Testing these guarantees is supported in shapeless via
@@ -44,7 +45,8 @@ object TypeCheckingExercises
     with Matchers
     with org.scalaexercises.definitions.Section {
 
-  /** The testing library ScalaTest also has a way of checking that a snippet of code
+  /**
+   * The testing library ScalaTest also has a way of checking that a snippet of code
    * does not compile: pass it in to `assertTypeError`. What will happen if we combine
    * `illTyped` and `assertTypeError`? (Hint: it's like applying a double negative.)
    */

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ object Helper {
     f.toProduct(gen.to(p))
 }
 
-/** == Facilities for abstracting over arity ==
+/**
+ * == Facilities for abstracting over arity ==
  *
  * Conversions between tuples and `HList`'s, and between ordinary Scala functions of arbitrary arity and functions which
  * take a single corresponding `HList` argument allow higher order functions to abstract over the arity of the functions
@@ -51,7 +52,8 @@ object ArityExercises
     with org.scalaexercises.definitions.Section {
   import Helper._
 
-  /** Abstracting over arity
+  /**
+   * Abstracting over arity
    */
   def arityTest(res0: Int, res1: Int) = {
     applyProduct((1, 2))((_: Int) + (_: Int)) should be(res0)

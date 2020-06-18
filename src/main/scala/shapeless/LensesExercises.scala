@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,8 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import shapeless._
 
-/** == Boilerplate-free lenses for arbitrary case classes ==
+/**
+ * == Boilerplate-free lenses for arbitrary case classes ==
  *
  * A combination of `LabelledGeneric` and singleton-typed `Symbol` literals supports boilerplate-free lens creation for
  * arbitrary case classes
@@ -66,31 +67,36 @@ object LensesExercises
 
   import Helper._
 
-  /** Read a field
+  /**
+   * Read a field
    */
   def get(res0: Int) =
     ageLens.get(person) should be(res0)
 
-  /** Update a field
+  /**
+   * Update a field
    */
   def set(res0: Int) = {
     val updatedPerson = ageLens.set(person)(38)
     updatedPerson.age should be(res0)
   }
 
-  /** Transform a field
+  /**
+   * Transform a field
    */
   def modify(res0: Int) = {
     val updatedPerson = ageLens.modify(person)(_ + 1)
     updatedPerson.age should be(res0)
   }
 
-  /** Read a nested field
+  /**
+   * Read a nested field
    */
   def readNested(res0: String) =
     streetLens.get(person) should be(res0)
 
-  /** Update a nested field
+  /**
+   * Update a nested field
    */
   def updateNested(res0: String) = {
     val updatedPerson = streetLens.set(person)("Montpelier Road")

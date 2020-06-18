@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,8 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import shapeless._
 
-/** == Type safe cast ==
+/**
+ * == Type safe cast ==
  *
  * shapeless provides a `Typeable` type class which provides a type safe cast operation. `cast` returns an `Option` of the
  * target type rather than throwing an exception if the value is of the incorrect type, as can happen with separate
@@ -49,7 +50,8 @@ object TypeSafeCastExercises
     l.cast[List[List[String]]] should be(res2)
   }
 
-  /** An extractor based on `Typeable` is also available, allowing more precision in pattern matches,
+  /**
+   * An extractor based on `Typeable` is also available, allowing more precision in pattern matches,
    */
   def extractor(res0: Int) = {
 
@@ -64,14 +66,15 @@ object TypeSafeCastExercises
 
     result should be(res0)
 
-    /** The equivalent pattern match without `Typeable`/`TypeCase` would result in a compile-time warning about the erasure
-   * of the list's type parameter, then at runtime spuriously match the `List[String]` case and fail with a
-   * `ClassCastException` while attempting to evaluate its right hand side.
-   *
-   * Be aware that the increased precision and safety provided by `Typeable`/`TypeCase` don't alter the fact that type
-   * caseing should be avoided in general other than at boundaries with external components which are intrinsically untyped
-   * (eg. serialization points) or which otherwise have poor type discipline.
-   */
+    /**
+     * The equivalent pattern match without `Typeable`/`TypeCase` would result in a compile-time warning about the erasure
+     * of the list's type parameter, then at runtime spuriously match the `List[String]` case and fail with a
+     * `ClassCastException` while attempting to evaluate its right hand side.
+     *
+     * Be aware that the increased precision and safety provided by `Typeable`/`TypeCase` don't alter the fact that type
+     * caseing should be avoided in general other than at boundaries with external components which are intrinsically untyped
+     * (eg. serialization points) or which otherwise have poor type discipline.
+     */
   }
 
 }

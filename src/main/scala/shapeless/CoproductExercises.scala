@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,8 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import shapeless._
 
-/** == Coproducts and discriminated unions ==
+/**
+ * == Coproducts and discriminated unions ==
  *
  * shapeless has a Coproduct type, a generalization of Scala's `Either` to an arbitrary number of choices. Currently it
  * exists primarily to support `Generic` (see the next section), but will be expanded analogously to `HList` in later
@@ -47,7 +48,8 @@ object CoproductExercises
 
   import Helper._
 
-  /** {{{
+  /**
+   * {{{
    * type ISB = Int :+: String :+: Boolean :+: CNil
    *
    * val isb = Coproduct[ISB]("foo")
@@ -59,7 +61,8 @@ object CoproductExercises
     isb.select[String] should be(res1)
   }
 
-  /** Coproduct also supports mapping given a polymorphic function such as
+  /**
+   * Coproduct also supports mapping given a polymorphic function such as
    * {{{
    * object sizeM extends Poly1 {
    * implicit def caseInt = at[Int](i => (i, i))
@@ -74,7 +77,8 @@ object CoproductExercises
     m.select[(String, Int)] should be(res0)
   }
 
-  /** In the same way that adding labels To the elements of an HList gives us a record,
+  /**
+   * In the same way that adding labels To the elements of an HList gives us a record,
    * adding labels to the elements of a Coproduct gives us a discriminated union.
    */
   def unionE(res0: Option[Int], res1: Option[String], res2: Option[Boolean]) = {

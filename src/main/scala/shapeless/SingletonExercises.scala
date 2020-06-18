@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,22 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import shapeless._
 
-/** == Singleton-typed literals ==
+/**
+ * == Singleton-typed literals ==
  *
  * Although Scala's typechecker has always represented singleton types for literal values internally, there has not
  * previously been syntax available to express them, other than by [modifying the compiler][literaltype]. shapeless adds
  * support for singleton-typed literals via implicit macros.
  *
  * @param name singletons_literals
- *
  */
 object SingletonExercises
     extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
 
-  /** Singleton types bridge the gap between the value level and the type level and hence allow the exploration in Scala
+  /**
+   * Singleton types bridge the gap between the value level and the type level and hence allow the exploration in Scala
    * of techniques which would typically only be available in languages with support for full-spectrum dependent types.
    * The latest iteration of shapeless records makes a start on that.
    * Another simpler application is the use of Int literals to index into HLists and tuples,
@@ -51,7 +52,8 @@ object SingletonExercises
 
   import shapeless._
 
-  /** The examples in the shapeless tests and the following illustrate other possibilities,
+  /**
+   * The examples in the shapeless tests and the following illustrate other possibilities,
    * {{{
    * import shapeless._, syntax.singleton._
    * }}}
@@ -74,7 +76,7 @@ object SingletonExercises
 
     trait Select[B] { type Out }
 
-    implicit val selInt    = new Select[True]  { type Out = Int    }
+    implicit val selInt    = new Select[True] { type Out = Int }
     implicit val selString = new Select[False] { type Out = String }
 
     def select(b: WitnessWith[Select])(t: b.instance.Out) = t

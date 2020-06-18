@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ import org.scalatest.matchers.should.Matchers
 import shapeless._
 import poly.{~>}
 
-/** == Polymorphic function values ==
+/**
+ * == Polymorphic function values ==
  *
  * Ordinary [[http://www.chuusai.com/2012/04/27/shapeless-polymorphic-function-values-1/ Scala function values are monomorphic]]. shapeless, however, provides an encoding of polymorphic
  * function values. It supports [[http://en.wikipedia.org/wiki/Natural_transformation natural transformations]], which are familiar from libraries like Scalaz
@@ -34,7 +35,8 @@ object PolyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
     def apply[T](s: Seq[T]) = s.headOption
   }
 
-  /** `choose` is a function from Seqs to Options with no type specific cases
+  /**
+   * `choose` is a function from Seqs to Options with no type specific cases
    * {{{
    * object choose extends (Seq ~> Option) {
    * def apply[T](s : Seq[T]) = s.headOption
@@ -48,7 +50,8 @@ object PolyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
     choose(Seq('a', 'b', 'c')) should be(res1)
   }
 
-  /** Being polymorphic, they may be passed as arguments to functions or methods and then applied to values of different types
+  /**
+   * Being polymorphic, they may be passed as arguments to functions or methods and then applied to values of different types
    * within those functions
    */
   def exercisePairApply(res0: Option[Int], res1: Option[Char]) = {
@@ -57,14 +60,16 @@ object PolyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
     pairApply(choose) should be((res0, res1))
   }
 
-  /** They are nevertheless interoperable with ordinary monomorphic function values.
+  /**
+   * They are nevertheless interoperable with ordinary monomorphic function values.
    * `choose` is convertible to an ordinary monomorphic function value and can be
    * mapped across an ordinary Scala List
    */
   def exerciseMonomorphicChoose(res0: Option[Int], res1: Option[Int]) =
     (List(Seq(1, 3, 5), Seq(2, 4, 6)) map choose) should be(List(res0, res1))
 
-  /** However, they are [[http://www.chuusai.com/2012/05/10/shapeless-polymorphic-function-values-2/ more general than natural transformations]] and are able to capture type-specific cases
+  /**
+   * However, they are [[http://www.chuusai.com/2012/05/10/shapeless-polymorphic-function-values-2/ more general than natural transformations]] and are able to capture type-specific cases
    * which, as we'll see below, makes them ideal for generic programming,
    * `size` is a function from Ints or Strings or pairs to a `size` defined
    * by type specific cases

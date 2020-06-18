@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,8 @@ object GenericHelper {
   case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
 }
 
-/** == Generic representation of (sealed families of) case classes ==
+/**
+ * == Generic representation of (sealed families of) case classes ==
  *
  * The `Iso`s of earlier shapeless releases have been completely reworked as the new `Generic` type, which closely
  * resembles the [[https://wiki.haskell.org/GHC.Generics generic programming capabilities introduced to GHC 7.2]].
@@ -59,7 +60,8 @@ object GenericExercises
     with org.scalaexercises.definitions.Section {
   import GenericHelper._
 
-  /** {{{
+  /**
+   * {{{
    * case class Foo(i: Int, s: String, b: Boolean)
    *
    * val fooGen = Generic[Foo]
@@ -77,7 +79,8 @@ object GenericExercises
     newFoo.i should be(res1)
   }
 
-  /** Typically values of Generic for a given case class are materialized using an implicit macro,
+  /**
+   * Typically values of Generic for a given case class are materialized using an implicit macro,
    * allowing a wide variety of structural programming problems to be solved with no or minimal boilerplate.
    * In particular the existing lens, Scrap Your Boilerplate and generic zipper implementations are now available
    * for any case class family (recursive families included, as illustrated below) without any additional boilerplate being required
@@ -117,7 +120,8 @@ object GenericExercises
     )
   }
 
-  /** A natural extension of Generic's mapping of the content of data types onto a sum of products representation
+  /**
+   * A natural extension of Generic's mapping of the content of data types onto a sum of products representation
    * is to a mapping of the data type including its constructor and field names onto a labelled sum of products representation,
    * ie. a representation in terms of the discriminated unions and records that we saw above.
    * This is provided by LabelledGeneric. Currently it provides the underpinnings for the use of shapeless lenses with
