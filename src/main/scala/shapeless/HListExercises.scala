@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +47,8 @@ object CovariantHelper {
   val apap: APAP = a :: p :: a :: p :: HNil
 }
 
-/** == Heterogenous lists ==
+/**
+ * == Heterogenous lists ==
  *
  * shapeless provides a comprehensive Scala `HList` which has many features not shared by other HList implementations.
  *
@@ -58,7 +59,8 @@ object HListExercises
     with Matchers
     with org.scalaexercises.definitions.Section {
 
-  /** It has a `map` operation, applying a polymorphic function value across its elements. This means that it subsumes both
+  /**
+   * It has a `map` operation, applying a polymorphic function value across its elements. This means that it subsumes both
    * typical `HList`'s and also `KList`'s (`HList`'s whose elements share a common outer type constructor).
    */
   def exerciseMap(res0: Option[Int], res1: Option[String]) = {
@@ -75,7 +77,8 @@ object HListExercises
     opts should be(res0 :: res1 :: HNil)
   }
 
-  /** It also has a flatMap Operation
+  /**
+   * It also has a flatMap Operation
    */
   def exerciseFlatMap(res0: Int, res1: String, res2: Boolean) = {
     import poly.identity
@@ -86,7 +89,8 @@ object HListExercises
 
   }
 
-  /** It has a set of fully polymorphic fold operations which take a polymorphic binary function value. The fold is sensitive
+  /**
+   * It has a set of fully polymorphic fold operations which take a polymorphic binary function value. The fold is sensitive
    * to the static types of all of the elements of the `HList`. Given the earlier definition of size,
    * {{{
    * object addSize extends Poly2 {
@@ -103,7 +107,8 @@ object HListExercises
 
   }
 
-  /** It also has a zipper for traversal and persistent update,
+  /**
+   * It also has a zipper for traversal and persistent update,
    */
   def exerciseZipper(res0: Int, res1: (String, Int), res2: Double, res3: Int, res4: Double) = {
     import syntax.zipper._
@@ -117,7 +122,8 @@ object HListExercises
 
   import CovariantHelper._
 
-  /** It is covariant,
+  /**
+   * It is covariant,
    * {{{
    * object CovariantHelper {
    *
@@ -142,19 +148,22 @@ object HListExercises
     implicitly[TypeTag[APAP]].tpe.typeConstructor <:< typeOf[FFFF] should be(res0)
   }
 
-  /** And it has a unify operation which converts it to an HList of elements of the least upper bound of the original types,
+  /**
+   * And it has a unify operation which converts it to an HList of elements of the least upper bound of the original types,
    */
   def exerciseUnify(res0: Boolean, res1: Boolean) = {
     apap.isInstanceOf[FFFF] should be(res0)
     apap.unify.isInstanceOf[FFFF] should be(res1)
   }
 
-  /** It supports conversion to an ordinary Scala `List` of elements of the least upper bound of the original types,
+  /**
+   * It supports conversion to an ordinary Scala `List` of elements of the least upper bound of the original types,
    */
   def exerciseConversionToList(res0: List[Fruit]) =
     apap.toList should be(res0)
 
-  /** And it has a `Typeable` type class instance (see below), allowing, eg. vanilla `List[Any]`'s or `HList`'s with
+  /**
+   * And it has a `Typeable` type class instance (see below), allowing, eg. vanilla `List[Any]`'s or `HList`'s with
    * elements of type `Any` to be safely cast to precisely typed `HList`'s.
    * These last three features make this `HList` dramatically more practically useful than `HList`'s are typically thought to be:
    * normally the full type information required to work with them is too fragile to cross subtyping or I/O boundaries.

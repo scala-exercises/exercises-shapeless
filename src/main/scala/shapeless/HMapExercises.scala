@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,8 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import shapeless._
 
-/** == Heterogenous maps ==
+/**
+ * == Heterogenous maps ==
  *
  * Shapeless provides a heterogenous map which supports an arbitrary relation between the key type and the corresponding
  * value type,
@@ -48,14 +49,16 @@ object HMapExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
 
   import Helper._
 
-  /** Key/value relation to be enforced: Strings map to Ints and vice versa
+  /**
+   * Key/value relation to be enforced: Strings map to Ints and vice versa
    */
   def kvEnforcement(res0: Option[String], res1: Option[Int]) = {
     hm.get(23) should be(res0)
     hm.get("bar") should be(res1)
   }
 
-  /** And in much the same way that an ordinary monomorphic Scala map can be viewed as a monomorphic function value,
+  /**
+   * And in much the same way that an ordinary monomorphic Scala map can be viewed as a monomorphic function value,
    * so too can a heterogenous shapeless map be viewed as a polymorphic function value,
    */
   def mapAsPolyFValue(res0: String :: Int :: HNil) = {

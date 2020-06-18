@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,8 @@ package shapelessex
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
-/** == Extensible records ==
+/**
+ * == Extensible records ==
  *
  * shapeless provides an implementation of extensible records modelled as `HLists` of values tagged with the singleton
  * types of their keys. This means that there is no concrete representation needed at all for the keys. Amongst other
@@ -37,7 +38,6 @@ import org.scalatest.matchers.should.Matchers
  * }}}
  *
  * @param name extensible_records
- *
  */
 object ExtensibleRecordsExercises
     extends AnyFlatSpec
@@ -69,12 +69,14 @@ object ExtensibleRecordsExercises
     book.keys should be (res0)
   }
    */
-  /** values
+  /**
+   * values
    */
   def values(res0: String :: String :: Int :: Double :: HNil) =
     book.values should be(res0)
 
-  /** Update, Add or remove a field
+  /**
+   * Update, Add or remove a field
    */
   def updated(res0: Double, res1: Boolean, res2: String :: String :: Double :: Boolean :: HNil) = {
     val newPrice = book("price") + 2.0

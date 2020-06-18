@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,8 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import shapeless._
 
-/** == HList-style operations on standard Scala tuples ==
+/**
+ * == HList-style operations on standard Scala tuples ==
  *
  * shapeless allows standard Scala tuples to be manipulated in exactly the same ways as `HList`s
  * @param name tuples
@@ -32,7 +33,8 @@ object TuplesHListExercises
 
   import syntax.std.tuple._
 
-  /** {{{
+  /**
+   * {{{
    * import syntax.std.tuple._
    * }}}
    * head
@@ -40,41 +42,48 @@ object TuplesHListExercises
   def head(res0: Int) =
     (23, "foo", true).head should be(res0)
 
-  /** tail
+  /**
+   * tail
    */
   def tail(res0: (String, Boolean)) =
     (23, "foo", true).tail should be(res0)
 
-  /** drop
+  /**
+   * drop
    */
   def drop(res0: Tuple1[Boolean]) =
     (23, "foo", true).drop(2) should be(res0)
 
-  /** take
+  /**
+   * take
    */
   def take(res0: (Int, String)) =
     (23, "foo", true).take(2) should be(res0)
 
-  /** split
+  /**
+   * split
    */
   def split(res0: (Tuple1[Int], (String, Boolean))) =
     (23, "foo", true).split(1) should be(res0)
 
-  /** prepend
+  /**
+   * prepend
    */
   def prepend(res0: (Int, String, Boolean)) = {
     val l = 23 +: ("foo", true)
     l should be(res0)
   }
 
-  /** append
+  /**
+   * append
    */
   def append(res0: (Int, String, Boolean)) = {
     val l = (23, "foo") :+ true
     l should be(res0)
   }
 
-  /** concatenate
+  /**
+   * concatenate
    */
   def concatenate(res0: (Int, String, Boolean, Double)) = {
     val l = (23, "foo") ++ (true, 2.0)
@@ -87,7 +96,8 @@ object TuplesHListExercises
     def apply[T](t: T) = Option(t)
   }
 
-  /** map
+  /**
+   * map
    * {{{
    * import poly._
    *
@@ -101,7 +111,8 @@ object TuplesHListExercises
     l should be(res0)
   }
 
-  /** flatMap
+  /**
+   * flatMap
    */
   def flatMap(res0: (Int, String, Boolean, Double)) = {
     val l = ((23, "foo"), (), (true, 2.0)) flatMap identity
@@ -120,7 +131,8 @@ object TuplesHListExercises
       at[Int, T]((acc, t) => acc + sizeOf(t))
   }
 
-  /** fold
+  /**
+   * fold
    * {{{
    * object size extends Poly1 {
    * implicit def caseInt = at[Int](x => 1)
@@ -139,17 +151,20 @@ object TuplesHListExercises
   def fold(res0: Int) =
     (23, "foo", (13, "wibble")).foldLeft(0)(addSize) should be(res0)
 
-  /** conversion to `HList`
+  /**
+   * conversion to `HList`
    */
   def toHList(res0: Int :: String :: Boolean :: HNil) =
     (23, "foo", true).productElements should be(res0)
 
-  /** conversion to `List`
+  /**
+   * conversion to `List`
    */
   def toList(res0: List[Any]) =
     (23, "foo", true).toList should be(res0)
 
-  /** zipper
+  /**
+   * zipper
    */
   def zipper(res0: (Int, (String, Boolean), Double)) = {
     import syntax.zipper._

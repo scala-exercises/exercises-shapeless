@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,8 @@ object SizedHelper {
   )
 }
 
-/** == Collections with statically known sizes ==
+/**
+ * == Collections with statically known sizes ==
  *
  * shapeless provides collection types with statically known sizes. These can prevent runtime errors such as those that
  * would result from attempting to take the head of an empty list, and can also verify more complex relationships.
@@ -64,7 +65,8 @@ object SizedExercises
     with org.scalaexercises.definitions.Section {
   import SizedHelper._
 
-  /** In the example below we define a method `csv` whose signature guarantees at compile time that there are exactly as many
+  /**
+   * In the example below we define a method `csv` whose signature guarantees at compile time that there are exactly as many
    * column headers provided as colums
    * TODO : what would be a good exercise for stuff that can only be proven at compile time???
    */

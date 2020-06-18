@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,8 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import shapeless._
 
-/** == First class lazy values tie implicit recursive knots ==
+/**
+ * == First class lazy values tie implicit recursive knots ==
  *
  * Traversals and transformations of recursive types (eg. cons lists or trees) must themselves be recursive. Consequently
  * type class instances which perform such operations must be recursive values in turn. This is problematic in Scala
@@ -50,14 +51,16 @@ object LazyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
 
     object Show {
       // Base case for Int
-      implicit def showInt: Show[Int] = new Show[Int] {
-        def apply(t: Int) = t.toString
-      }
+      implicit def showInt: Show[Int] =
+        new Show[Int] {
+          def apply(t: Int) = t.toString
+        }
 
       // Base case for Nil
-      implicit def showNil: Show[Nil] = new Show[Nil] {
-        def apply(t: Nil) = "Nil"
-      }
+      implicit def showNil: Show[Nil] =
+        new Show[Nil] {
+          def apply(t: Nil) = "Nil"
+        }
 
       // Case for Cons[T]: note (mutually) recursive implicit argument referencing Show[List[T]]
       implicit def showCons[T](implicit st: Lazy[Show[T]], sl: Lazy[Show[List[T]]]): Show[Cons[T]] =
@@ -68,10 +71,11 @@ object LazyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
       // Case for List[T]: note (mutually) recursive implicit argument referencing Show[Cons[T]]
       implicit def showList[T](implicit sc: Lazy[Show[Cons[T]]]): Show[List[T]] =
         new Show[List[T]] {
-          def apply(t: List[T]) = t match {
-            case n: Nil     => show(n)
-            case c: Cons[T] => show(c)(sc.value)
-          }
+          def apply(t: List[T]) =
+            t match {
+              case n: Nil     => show(n)
+              case c: Cons[T] => show(c)(sc.value)
+            }
         }
     }
 
@@ -82,7 +86,8 @@ object LazyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
 
   import Helper._
 
-  /** {{{
+  /**
+   * {{{
    * sealed trait List[+T]
    * case class Cons[T](hd: T, tl: List[T]) extends List[T]
    * sealed trait Nil extends List[Nothing]
@@ -125,7 +130,8 @@ object LazyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
   def lazyExercise(res0: String) =
     show(l) should be(res0) // Without the Lazy wrappers above the following would diverge ...
 
-  /** which would otherwise be impossible in Scala.
- */
+  /**
+   * which would otherwise be impossible in Scala.
+   */
 
 }

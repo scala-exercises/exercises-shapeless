@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 47 Degrees <https://47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,8 @@
 
 package shapelessex
 
-/** Shapeless is a type class and dependent type based generic programming library for Scala.
+/**
+ * Shapeless is a type class and dependent type based generic programming library for Scala.
  *
  * @param name shapeless
  */
@@ -26,23 +27,24 @@ object ShapelessLib extends org.scalaexercises.definitions.Library {
 
   override def color = Some("#F83A4D")
 
-  override def sections = List(
-    PolyExercises,
-    HListExercises,
-    TuplesHListExercises,
-    ArityExercises,
-    HMapExercises,
-    SingletonExercises,
+  override def sections =
+    List(
+      PolyExercises,
+      HListExercises,
+      TuplesHListExercises,
+      ArityExercises,
+      HMapExercises,
+      SingletonExercises,
 //  ExtensibleRecordsExercises,
-    CoproductExercises,
-    GenericExercises,
-    LensesExercises,
-    AutoTypeClassExercises,
-    LazyExercises,
+      CoproductExercises,
+      GenericExercises,
+      LensesExercises,
+      AutoTypeClassExercises,
+      LazyExercises,
 //  SizedExercises,
-    TypeSafeCastExercises,
-    TypeCheckingExercises
-  )
+      TypeSafeCastExercises,
+      TypeCheckingExercises
+    )
 
   override def logoPath = "shapeless"
 }
