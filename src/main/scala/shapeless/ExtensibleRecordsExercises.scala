@@ -1,15 +1,26 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package shapelessex
 
-import org.scalatest._
-import shapeless._
-import ops.hlist._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-/** == Extensible records ==
+/**
+ * == Extensible records ==
  *
  * shapeless provides an implementation of extensible records modelled as `HLists` of values tagged with the singleton
  * types of their keys. This means that there is no concrete representation needed at all for the keys. Amongst other
@@ -27,10 +38,9 @@ import ops.hlist._
  * }}}
  *
  * @param name extensible_records
- *
  */
 object ExtensibleRecordsExercises
-    extends FlatSpec
+    extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
 
@@ -59,12 +69,14 @@ object ExtensibleRecordsExercises
     book.keys should be (res0)
   }
    */
-  /** values
+  /**
+   * values
    */
   def values(res0: String :: String :: Int :: Double :: HNil) =
     book.values should be(res0)
 
-  /** Update, Add or remove a field
+  /**
+   * Update, Add or remove a field
    */
   def updated(res0: Double, res1: Boolean, res2: String :: String :: Double :: Boolean :: HNil) = {
     val newPrice = book("price") + 2.0

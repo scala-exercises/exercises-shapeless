@@ -1,5 +1,4 @@
 # Scala Exercises - Shapeless
-------------------------
 
 This repository hosts a content library for the [Scala Exercises](https://www.scala-exercises.org/) platform, including interactive exercises related to the [Shapeless](https://github.com/milessabin/shapeless) generic programming library.
 

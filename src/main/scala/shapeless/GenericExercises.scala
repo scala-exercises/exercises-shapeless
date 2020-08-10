@@ -1,11 +1,23 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package shapelessex
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 object GenericHelper {
@@ -25,13 +37,14 @@ object GenericHelper {
   // Polymorphic function which adds 1 to any Int and is the identity
   // on all other values
   // format: OFF
-  object inc extends -> ((i: Int) ⇒ i + 1)
+  object inc extends -> ((i: Int) => i + 1)
   // format: ON
   case class Book(author: String, title: String, id: Int, price: Double)
   case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
 }
 
-/** == Generic representation of (sealed families of) case classes ==
+/**
+ * == Generic representation of (sealed families of) case classes ==
  *
  * The `Iso`s of earlier shapeless releases have been completely reworked as the new `Generic` type, which closely
  * resembles the [[https://wiki.haskell.org/GHC.Generics generic programming capabilities introduced to GHC 7.2]].
@@ -42,12 +55,13 @@ object GenericHelper {
  * @param name generic
  */
 object GenericExercises
-    extends FlatSpec
+    extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
   import GenericHelper._
 
-  /** {{{
+  /**
+   * {{{
    * case class Foo(i: Int, s: String, b: Boolean)
    *
    * val fooGen = Generic[Foo]
@@ -65,7 +79,8 @@ object GenericExercises
     newFoo.i should be(res1)
   }
 
-  /** Typically values of Generic for a given case class are materialized using an implicit macro,
+  /**
+   * Typically values of Generic for a given case class are materialized using an implicit macro,
    * allowing a wide variety of structural programming problems to be solved with no or minimal boilerplate.
    * In particular the existing lens, Scrap Your Boilerplate and generic zipper implementations are now available
    * for any case class family (recursive families included, as illustrated below) without any additional boilerplate being required
@@ -105,7 +120,8 @@ object GenericExercises
     )
   }
 
-  /** A natural extension of Generic's mapping of the content of data types onto a sum of products representation
+  /**
+   * A natural extension of Generic's mapping of the content of data types onto a sum of products representation
    * is to a mapping of the data type including its constructor and field names onto a labelled sum of products representation,
    * ie. a representation in terms of the discriminated unions and records that we saw above.
    * This is provided by LabelledGeneric. Currently it provides the underpinnings for the use of shapeless lenses with
@@ -122,21 +138,19 @@ object GenericExercises
     val tapl    = Book("Benjamin Pierce", "Types and Programming Languages", 262162091, 44.11)
     val rec     = bookGen.to(tapl)
 
-    rec('price) should be(res0)
+    rec(Symbol("price")) should be(res0)
 
-    val updatedBook = bookGen.from(rec.updateWith('price)(_ + 2.0))
+    val updatedBook = bookGen.from(rec.updateWith(Symbol("price"))(_ + 2.0))
 
     updatedBook.price should be(res1)
 
-    /** {{{
-     * case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
-     * }}}
-     */
+    // case class ExtendedBook(author: String, title: String, id: Int, price: Double, inPrint: Boolean)
+
     import syntax.singleton._
 
     val bookExtGen = LabelledGeneric[ExtendedBook]
 
-    val extendedBook = bookExtGen.from(rec + ('inPrint ->> true))
+    val extendedBook = bookExtGen.from(rec + (Symbol("inPrint") ->> true))
 
     extendedBook.inPrint should be(res2)
   }

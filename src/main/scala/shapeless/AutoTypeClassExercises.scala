@@ -1,11 +1,24 @@
 /*
- * scala-exercises - exercises-shapeless
- * Copyright (C) 2015-2016 47 Degrees, LLC. <http://www.47deg.com>
+ * Copyright 2016-2020 47 Degrees Open Source <https://www.47deg.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package shapelessex
 
-import org.scalatest._
+import scala.language.implicitConversions
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 trait Monoid[T] {
@@ -16,41 +29,48 @@ trait Monoid[T] {
 object Monoid extends ProductTypeClassCompanion[Monoid] {
   def mzero[T](implicit mt: Monoid[T]) = mt.zero
 
-  implicit def booleanMonoid: Monoid[Boolean] = new Monoid[Boolean] {
-    def zero                           = false
-    def append(a: Boolean, b: Boolean) = a || b
-  }
+  implicit def booleanMonoid: Monoid[Boolean] =
+    new Monoid[Boolean] {
+      def zero                           = false
+      def append(a: Boolean, b: Boolean) = a || b
+    }
 
-  implicit def intMonoid: Monoid[Int] = new Monoid[Int] {
-    def zero                   = 0
-    def append(a: Int, b: Int) = a + b
-  }
+  implicit def intMonoid: Monoid[Int] =
+    new Monoid[Int] {
+      def zero                   = 0
+      def append(a: Int, b: Int) = a + b
+    }
 
-  implicit def doubleMonoid: Monoid[Double] = new Monoid[Double] {
-    def zero                         = 0.0
-    def append(a: Double, b: Double) = a + b
-  }
+  implicit def doubleMonoid: Monoid[Double] =
+    new Monoid[Double] {
+      def zero                         = 0.0
+      def append(a: Double, b: Double) = a + b
+    }
 
-  implicit def stringMonoid: Monoid[String] = new Monoid[String] {
-    def zero                         = ""
-    def append(a: String, b: String) = a + b
-  }
+  implicit def stringMonoid: Monoid[String] =
+    new Monoid[String] {
+      def zero                         = ""
+      def append(a: String, b: String) = a + b
+    }
 
   object typeClass extends ProductTypeClass[Monoid] {
-    def emptyProduct = new Monoid[HNil] {
-      def zero                     = HNil
-      def append(a: HNil, b: HNil) = HNil
-    }
+    def emptyProduct =
+      new Monoid[HNil] {
+        def zero                     = HNil
+        def append(a: HNil, b: HNil) = HNil
+      }
 
-    def product[F, T <: HList](mh: Monoid[F], mt: Monoid[T]) = new Monoid[F :: T] {
-      def zero                         = mh.zero :: mt.zero
-      def append(a: F :: T, b: F :: T) = mh.append(a.head, b.head) :: mt.append(a.tail, b.tail)
-    }
+    def product[F, T <: HList](mh: Monoid[F], mt: Monoid[T]) =
+      new Monoid[F :: T] {
+        def zero                         = mh.zero :: mt.zero
+        def append(a: F :: T, b: F :: T) = mh.append(a.head, b.head) :: mt.append(a.tail, b.tail)
+      }
 
-    def project[F, G](instance: ⇒ Monoid[G], to: F ⇒ G, from: G ⇒ F) = new Monoid[F] {
-      def zero               = from(instance.zero)
-      def append(a: F, b: F) = from(instance.append(to(a), to(b)))
-    }
+    def project[F, G](instance: => Monoid[G], to: F => G, from: G => F) =
+      new Monoid[F] {
+        def zero               = from(instance.zero)
+        def append(a: F, b: F) = from(instance.append(to(a), to(b)))
+      }
   }
 }
 
@@ -65,7 +85,8 @@ object MonoidSyntax {
     }
 }
 
-/** == Automatic type class instance derivation ==
+/**
+ * == Automatic type class instance derivation ==
  *
  * Based on and extending `Generic` and `LabelledGeneric`, Lars Hupel ([[https://twitter.com/larsr_h @larsr_h]]) has contributed the `TypeClass`
  * family of type classes, which provide automatic type class derivation facilities roughly equivalent to those available
@@ -140,10 +161,9 @@ object MonoidSyntax {
  * [[https://github.com/typelevel/shapeless-contrib/blob/master/scalacheck/main/scala/package.scala Scalacheck]].
  *
  * @param name auto_typeclass_derivation
- *
  */
 object AutoTypeClassExercises
-    extends FlatSpec
+    extends AnyFlatSpec
     with Matchers
     with org.scalaexercises.definitions.Section {
 
@@ -156,7 +176,8 @@ object AutoTypeClassExercises
 
   import Helper._
 
-  /** {{{
+  /**
+   * {{{
    *
    * // A pair of arbitrary case classes
    * case class Foo(i : Int, s : String)
@@ -167,7 +188,6 @@ object AutoTypeClassExercises
   def monoidDerivation(res0: Int, res1: String, res2: Boolean, res3: String, res4: Double) = {
 
     import MonoidSyntax._
-    import Monoid.typeClass._
 
     val fooCombined = Foo(13, "foo") |+| Foo(23, "bar")
     fooCombined should be(Foo(res0, res1))
