@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.6.5](https://github.com/scala-exercises/exercises-shapeless/tree/v0.6.5) (2020-08-10)
+
+[Full Changelog](https://github.com/scala-exercises/exercises-shapeless/compare/v0.6.4...v0.6.5)
+
+📈 **Dependency updates**
+
+- Update sbt-mdoc to 2.2.4 [\#98](https://github.com/scala-exercises/exercises-shapeless/pull/98) ([47erbot](https://github.com/47erbot))
+- Update scalacheck-1-14 to 3.2.1.0 [\#97](https://github.com/scala-exercises/exercises-shapeless/pull/97) ([47erbot](https://github.com/47erbot))
+- Update scalatest to 3.2.1 [\#96](https://github.com/scala-exercises/exercises-shapeless/pull/96) ([47erbot](https://github.com/47erbot))
+- Update sbt-scalafmt to 2.4.2 [\#95](https://github.com/scala-exercises/exercises-shapeless/pull/95) ([47erbot](https://github.com/47erbot))
+- Update scalafmt-core to 2.6.4 [\#94](https://github.com/scala-exercises/exercises-shapeless/pull/94) ([47erbot](https://github.com/47erbot))
+- Update scalafmt-core to 2.6.3 [\#93](https://github.com/scala-exercises/exercises-shapeless/pull/93) ([scala-steward](https://github.com/scala-steward))
+- Update scalafmt-core to 2.6.2 [\#92](https://github.com/scala-exercises/exercises-shapeless/pull/92) ([scala-steward](https://github.com/scala-steward))
+
 ## [v0.6.4](https://github.com/scala-exercises/exercises-shapeless/tree/v0.6.4) (2020-06-30)
 
 [Full Changelog](https://github.com/scala-exercises/exercises-shapeless/compare/v0.6.3...v0.6.4)
@@ -58,6 +72,7 @@
 - Updating sbt-org-policies to 0.5.12 [\#44](https://github.com/scala-exercises/exercises-shapeless/pull/44) ([dominv](https://github.com/dominv))
 - Update libraries versions [\#43](https://github.com/scala-exercises/exercises-shapeless/pull/43) ([dominv](https://github.com/dominv))
 - Changing Set to Seq [\#42](https://github.com/scala-exercises/exercises-shapeless/pull/42) ([aborg0](https://github.com/aborg0))
+- Integrates sbt-org-policies plugin [\#41](https://github.com/scala-exercises/exercises-shapeless/pull/41) ([juanpedromoreno](https://github.com/juanpedromoreno))
 - Fix minor typos [\#40](https://github.com/scala-exercises/exercises-shapeless/pull/40) ([NickShadder](https://github.com/NickShadder))
 
 ## [v0.4.0](https://github.com/scala-exercises/exercises-shapeless/tree/v0.4.0) (2017-03-28)
@@ -75,7 +90,6 @@
 
 **Merged pull requests:**
 
-- Integrates sbt-org-policies plugin [\#41](https://github.com/scala-exercises/exercises-shapeless/pull/41) ([juanpedromoreno](https://github.com/juanpedromoreno))
 - Update SingletonExercises.scala [\#39](https://github.com/scala-exercises/exercises-shapeless/pull/39) ([Narigo](https://github.com/Narigo))
 - Fixes scmInfo settings [\#38](https://github.com/scala-exercises/exercises-shapeless/pull/38) ([juanpedromoreno](https://github.com/juanpedromoreno))
 - Fix issue in the Union types [\#37](https://github.com/scala-exercises/exercises-shapeless/pull/37) ([fchaillou](https://github.com/fchaillou))
