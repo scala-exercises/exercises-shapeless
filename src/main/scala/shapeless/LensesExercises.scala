@@ -21,10 +21,10 @@ import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /**
- * == Boilerplate-free lenses for arbitrary case classes ==
+ * ==Boilerplate-free lenses for arbitrary case classes==
  *
- * A combination of `LabelledGeneric` and singleton-typed `Symbol` literals supports boilerplate-free lens creation for
- * arbitrary case classes
+ * A combination of `LabelledGeneric` and singleton-typed `Symbol` literals supports
+ * boilerplate-free lens creation for arbitrary case classes
  *
  * {{{
  * // A pair of ordinary case classes ...
@@ -42,7 +42,8 @@ import shapeless._
  * val person = Person("Joe Grey", 37, Address("Southover Street", "Brighton", "BN2 9UA"))
  * }}}
  *
- * @param name lenses
+ * @param name
+ *   lenses
  */
 object LensesExercises
     extends AnyFlatSpec

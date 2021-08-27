@@ -30,11 +30,11 @@ object Helper {
 }
 
 /**
- * == Facilities for abstracting over arity ==
+ * ==Facilities for abstracting over arity==
  *
- * Conversions between tuples and `HList`'s, and between ordinary Scala functions of arbitrary arity and functions which
- * take a single corresponding `HList` argument allow higher order functions to abstract over the arity of the functions
- * and values they are passed
+ * Conversions between tuples and `HList`'s, and between ordinary Scala functions of arbitrary arity
+ * and functions which take a single corresponding `HList` argument allow higher order functions to
+ * abstract over the arity of the functions and values they are passed
  * {{{
  * import syntax.std.function._
  * import ops.function._
@@ -44,7 +44,8 @@ object Helper {
  * f.toProduct(gen.to(p))
  * }}}
  *
- * @param name arity
+ * @param name
+ *   arity
  */
 object ArityExercises
     extends AnyFlatSpec

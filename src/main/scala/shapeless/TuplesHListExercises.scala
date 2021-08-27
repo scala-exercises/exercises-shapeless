@@ -21,10 +21,11 @@ import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /**
- * == HList-style operations on standard Scala tuples ==
+ * ==HList-style operations on standard Scala tuples==
  *
  * shapeless allows standard Scala tuples to be manipulated in exactly the same ways as `HList`s
- * @param name tuples
+ * @param name
+ *   tuples
  */
 object TuplesHListExercises
     extends AnyFlatSpec

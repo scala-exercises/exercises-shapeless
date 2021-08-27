@@ -21,20 +21,22 @@ import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /**
- * == First class lazy values tie implicit recursive knots ==
+ * ==First class lazy values tie implicit recursive knots==
  *
- * Traversals and transformations of recursive types (eg. cons lists or trees) must themselves be recursive. Consequently
- * type class instances which perform such operations must be recursive values in turn. This is problematic in Scala
- * at the both the value and the type levels: at the value level the issue is that recursive type class instances would
- * have to be constructed lazily, whilst Scala doesn't natively support lazy implicit arguments; at the type level the
- * issue is that during the type checking of expressions constructing recursive implicit values the implicit
+ * Traversals and transformations of recursive types (eg. cons lists or trees) must themselves be
+ * recursive. Consequently type class instances which perform such operations must be recursive
+ * values in turn. This is problematic in Scala at the both the value and the type levels: at the
+ * value level the issue is that recursive type class instances would have to be constructed lazily,
+ * whilst Scala doesn't natively support lazy implicit arguments; at the type level the issue is
+ * that during the type checking of expressions constructing recursive implicit values the implicit
  * resolution mechanism would revisit types in a way that would trip the divergence checker.
  *
- * The `Lazy[T]` type constructor and associated macro in shapeless addresses both of these problems in many cases. It is
- * similar to Scalaz's `Need[T]` and adds lazy implicit construction and suppression of divergence checking. This
- * supports constructions such as...
+ * The `Lazy[T]` type constructor and associated macro in shapeless addresses both of these problems
+ * in many cases. It is similar to Scalaz's `Need[T]` and adds lazy implicit construction and
+ * suppression of divergence checking. This supports constructions such as...
  *
- * @param name lazy
+ * @param name
+ *   lazy
  */
 object LazyExercises extends AnyFlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
