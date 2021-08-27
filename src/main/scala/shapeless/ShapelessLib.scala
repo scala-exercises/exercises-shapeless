@@ -19,7 +19,8 @@ package shapelessex
 /**
  * Shapeless is a type class and dependent type based generic programming library for Scala.
  *
- * @param name shapeless
+ * @param name
+ *   shapeless
  */
 object ShapelessLib extends org.scalaexercises.definitions.Library {
   override def owner      = "scala-exercises"

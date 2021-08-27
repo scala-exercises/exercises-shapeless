@@ -44,15 +44,18 @@ object GenericHelper {
 }
 
 /**
- * == Generic representation of (sealed families of) case classes ==
+ * ==Generic representation of (sealed families of) case classes==
  *
- * The `Iso`s of earlier shapeless releases have been completely reworked as the new `Generic` type, which closely
- * resembles the [[https://wiki.haskell.org/GHC.Generics generic programming capabilities introduced to GHC 7.2]].
+ * The `Iso`s of earlier shapeless releases have been completely reworked as the new `Generic` type,
+ * which closely resembles the
+ * [[https://wiki.haskell.org/GHC.Generics generic programming capabilities introduced to GHC 7.2]].
  *
- * `Generic[T]`, where `T` is a case class or an abstract type at the root of a case class hierarchy, maps between values
- * of `T` and a generic sum of products representation (`HList`s and `Coproduct`s),
+ * `Generic[T]`, where `T` is a case class or an abstract type at the root of a case class
+ * hierarchy, maps between values of `T` and a generic sum of products representation (`HList`s and
+ * `Coproduct`s),
  *
- * @param name generic
+ * @param name
+ *   generic
  */
 object GenericExercises
     extends AnyFlatSpec
@@ -81,9 +84,10 @@ object GenericExercises
 
   /**
    * Typically values of Generic for a given case class are materialized using an implicit macro,
-   * allowing a wide variety of structural programming problems to be solved with no or minimal boilerplate.
-   * In particular the existing lens, Scrap Your Boilerplate and generic zipper implementations are now available
-   * for any case class family (recursive families included, as illustrated below) without any additional boilerplate being required
+   * allowing a wide variety of structural programming problems to be solved with no or minimal
+   * boilerplate. In particular the existing lens, Scrap Your Boilerplate and generic zipper
+   * implementations are now available for any case class family (recursive families included, as
+   * illustrated below) without any additional boilerplate being required
    * {{{
    * import poly._
    *
@@ -121,11 +125,12 @@ object GenericExercises
   }
 
   /**
-   * A natural extension of Generic's mapping of the content of data types onto a sum of products representation
-   * is to a mapping of the data type including its constructor and field names onto a labelled sum of products representation,
-   * ie. a representation in terms of the discriminated unions and records that we saw above.
-   * This is provided by LabelledGeneric. Currently it provides the underpinnings for the use of shapeless lenses with
-   * symbolic path selectors (see next section) and it is expected that it will support many scenarios which would otherwise
+   * A natural extension of Generic's mapping of the content of data types onto a sum of products
+   * representation is to a mapping of the data type including its constructor and field names onto
+   * a labelled sum of products representation, ie. a representation in terms of the discriminated
+   * unions and records that we saw above. This is provided by LabelledGeneric. Currently it
+   * provides the underpinnings for the use of shapeless lenses with symbolic path selectors (see
+   * next section) and it is expected that it will support many scenarios which would otherwise
    * require the support of hard to maintain special case macros.
    * {{{
    * case class Book(author: String, title: String, id: Int, price: Double)

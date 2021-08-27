@@ -20,12 +20,12 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 /**
- * == Extensible records ==
+ * ==Extensible records==
  *
- * shapeless provides an implementation of extensible records modelled as `HLists` of values tagged with the singleton
- * types of their keys. This means that there is no concrete representation needed at all for the keys. Amongst other
- * things this will allow subsequent work on `Generic` to map case classes directly to records with their member names
- * encoded in their element types.
+ * shapeless provides an implementation of extensible records modelled as `HLists` of values tagged
+ * with the singleton types of their keys. This means that there is no concrete representation
+ * needed at all for the keys. Amongst other things this will allow subsequent work on `Generic` to
+ * map case classes directly to records with their member names encoded in their element types.
  * {{{
  * import shapeless._ ; import syntax.singleton._ ; import record._
  *
@@ -37,7 +37,8 @@ import org.scalatest.matchers.should.Matchers
  * HNil
  * }}}
  *
- * @param name extensible_records
+ * @param name
+ *   extensible_records
  */
 object ExtensibleRecordsExercises
     extends AnyFlatSpec

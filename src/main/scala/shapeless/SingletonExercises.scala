@@ -21,13 +21,15 @@ import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /**
- * == Singleton-typed literals ==
+ * ==Singleton-typed literals==
  *
- * Although Scala's typechecker has always represented singleton types for literal values internally, there has not
- * previously been syntax available to express them, other than by [modifying the compiler][literaltype]. shapeless adds
- * support for singleton-typed literals via implicit macros.
+ * Although Scala's typechecker has always represented singleton types for literal values
+ * internally, there has not previously been syntax available to express them, other than by
+ * [modifying the compiler][literaltype]. shapeless adds support for singleton-typed literals via
+ * implicit macros.
  *
- * @param name singletons_literals
+ * @param name
+ *   singletons_literals
  */
 object SingletonExercises
     extends AnyFlatSpec
@@ -35,10 +37,11 @@ object SingletonExercises
     with org.scalaexercises.definitions.Section {
 
   /**
-   * Singleton types bridge the gap between the value level and the type level and hence allow the exploration in Scala
-   * of techniques which would typically only be available in languages with support for full-spectrum dependent types.
-   * The latest iteration of shapeless records makes a start on that.
-   * Another simpler application is the use of Int literals to index into HLists and tuples,
+   * Singleton types bridge the gap between the value level and the type level and hence allow the
+   * exploration in Scala of techniques which would typically only be available in languages with
+   * support for full-spectrum dependent types. The latest iteration of shapeless records makes a
+   * start on that. Another simpler application is the use of Int literals to index into HLists and
+   * tuples,
    */
   def indexHListAndTuples(res0: String, res1: String) = {
     import syntax.std.tuple._

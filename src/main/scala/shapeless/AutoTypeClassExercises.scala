@@ -86,17 +86,23 @@ object MonoidSyntax {
 }
 
 /**
- * == Automatic type class instance derivation ==
+ * ==Automatic type class instance derivation==
  *
- * Based on and extending `Generic` and `LabelledGeneric`, Lars Hupel ([[https://twitter.com/larsr_h @larsr_h]]) has contributed the `TypeClass`
- * family of type classes, which provide automatic type class derivation facilities roughly equivalent to those available
- * with GHC as described in [[http://dreixel.net/research/pdf/gdmh.pdf "A Generic Deriving Mechanism for Haskell"]].  There is a description of an
- * earlier iteration of the Scala mechanism [[http://typelevel.org/blog/2013/06/24/deriving-instances-1.html here]], and examples of its use deriving `Show` and `Monoid`
- * instances [[https://github.com/milessabin/shapeless/blob/master/examples/src/main/scala/shapeless/examples/shows.scala here]]
- * and [[https://github.com/milessabin/shapeless/blob/master/examples/src/main/scala/shapeless/examples/monoids.scala here]] for labelled coproducts and unlabelled products respectively.
+ * Based on and extending `Generic` and `LabelledGeneric`, Lars Hupel ([[https://twitter.com/larsr_h
+ * @larsr_h]]) has contributed the `TypeClass` family of type classes, which provide automatic type
+ * class derivation facilities roughly equivalent to those available with GHC as described in
+ * [[http://dreixel.net/research/pdf/gdmh.pdf "A Generic Deriving Mechanism for Haskell"]]. There is
+ * a description of an earlier iteration of the Scala mechanism
+ * [[http://typelevel.org/blog/2013/06/24/deriving-instances-1.html here]], and examples of its use
+ * deriving `Show` and `Monoid` instances
+ * [[https://github.com/milessabin/shapeless/blob/master/examples/src/main/scala/shapeless/examples/shows.scala here]]
+ * and
+ * [[https://github.com/milessabin/shapeless/blob/master/examples/src/main/scala/shapeless/examples/monoids.scala here]]
+ * for labelled coproducts and unlabelled products respectively.
  *
- * For example, in the `Monoid` case, once the general deriving infrastructure for monoids is in place, instances are
- * automatically available for arbitrary case classes without any additional boilerplate
+ * For example, in the `Monoid` case, once the general deriving infrastructure for monoids is in
+ * place, instances are automatically available for arbitrary case classes without any additional
+ * boilerplate
  *
  * {{{
  * trait Monoid[T] {
@@ -155,12 +161,15 @@ object MonoidSyntax {
  * }
  * }
  * }}}
- * The [[https://github.com/typelevel/shapeless-contrib shapeless-contrib]] project also contains automatically derived type class instances for
+ * The [[https://github.com/typelevel/shapeless-contrib shapeless-contrib]] project also contains
+ * automatically derived type class instances for
  * [[https://github.com/typelevel/shapeless-contrib/blob/master/scalaz/main/scala/typeclass.scala Scalaz]],
- * [[https://github.com/typelevel/shapeless-contrib/blob/master/spire/main/scala/typeclass.scala Spire]] and
+ * [[https://github.com/typelevel/shapeless-contrib/blob/master/spire/main/scala/typeclass.scala Spire]]
+ * and
  * [[https://github.com/typelevel/shapeless-contrib/blob/master/scalacheck/main/scala/package.scala Scalacheck]].
  *
- * @param name auto_typeclass_derivation
+ * @param name
+ *   auto_typeclass_derivation
  */
 object AutoTypeClassExercises
     extends AnyFlatSpec

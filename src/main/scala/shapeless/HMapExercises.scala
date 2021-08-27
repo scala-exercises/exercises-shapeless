@@ -21,10 +21,10 @@ import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /**
- * == Heterogenous maps ==
+ * ==Heterogenous maps==
  *
- * Shapeless provides a heterogenous map which supports an arbitrary relation between the key type and the corresponding
- * value type,
+ * Shapeless provides a heterogenous map which supports an arbitrary relation between the key type
+ * and the corresponding value type,
  * {{{
  * class BiMapIS[K, V]
  * implicit val intToString = new BiMapIS[Int, String]
@@ -34,7 +34,8 @@ import shapeless._
  * //val hm2 = HMap[BiMapIS](23 -> "foo", 23 -> 13)   // Does not compile
  * }}}
  *
- * @param name HMap
+ * @param name
+ *   HMap
  */
 object HMapExercises extends AnyFlatSpec with Matchers with org.scalaexercises.definitions.Section {
 
@@ -58,8 +59,9 @@ object HMapExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
   }
 
   /**
-   * And in much the same way that an ordinary monomorphic Scala map can be viewed as a monomorphic function value,
-   * so too can a heterogenous shapeless map be viewed as a polymorphic function value,
+   * And in much the same way that an ordinary monomorphic Scala map can be viewed as a monomorphic
+   * function value, so too can a heterogenous shapeless map be viewed as a polymorphic function
+   * value,
    */
   def mapAsPolyFValue(res0: String :: Int :: HNil) = {
     import hm._

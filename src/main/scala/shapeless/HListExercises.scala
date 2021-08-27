@@ -48,11 +48,13 @@ object CovariantHelper {
 }
 
 /**
- * == Heterogenous lists ==
+ * ==Heterogenous lists==
  *
- * shapeless provides a comprehensive Scala `HList` which has many features not shared by other HList implementations.
+ * shapeless provides a comprehensive Scala `HList` which has many features not shared by other
+ * HList implementations.
  *
- * @param name heterogenous_lists
+ * @param name
+ *   heterogenous_lists
  */
 object HListExercises
     extends AnyFlatSpec
@@ -60,8 +62,9 @@ object HListExercises
     with org.scalaexercises.definitions.Section {
 
   /**
-   * It has a `map` operation, applying a polymorphic function value across its elements. This means that it subsumes both
-   * typical `HList`'s and also `KList`'s (`HList`'s whose elements share a common outer type constructor).
+   * It has a `map` operation, applying a polymorphic function value across its elements. This means
+   * that it subsumes both typical `HList`'s and also `KList`'s (`HList`'s whose elements share a
+   * common outer type constructor).
    */
   def exerciseMap(res0: Option[Int], res1: Option[String]) = {
     import poly._
@@ -90,8 +93,9 @@ object HListExercises
   }
 
   /**
-   * It has a set of fully polymorphic fold operations which take a polymorphic binary function value. The fold is sensitive
-   * to the static types of all of the elements of the `HList`. Given the earlier definition of size,
+   * It has a set of fully polymorphic fold operations which take a polymorphic binary function
+   * value. The fold is sensitive to the static types of all of the elements of the `HList`. Given
+   * the earlier definition of size,
    * {{{
    * object addSize extends Poly2 {
    * implicit  def default[T](implicit st: shapelessex.size.Case.Aux[T, Int]) =
@@ -149,7 +153,8 @@ object HListExercises
   }
 
   /**
-   * And it has a unify operation which converts it to an HList of elements of the least upper bound of the original types,
+   * And it has a unify operation which converts it to an HList of elements of the least upper bound
+   * of the original types,
    */
   def exerciseUnify(res0: Boolean, res1: Boolean) = {
     apap.isInstanceOf[FFFF] should be(res0)
@@ -157,19 +162,21 @@ object HListExercises
   }
 
   /**
-   * It supports conversion to an ordinary Scala `List` of elements of the least upper bound of the original types,
+   * It supports conversion to an ordinary Scala `List` of elements of the least upper bound of the
+   * original types,
    */
   def exerciseConversionToList(res0: List[Fruit]) =
     apap.toList should be(res0)
 
   /**
-   * And it has a `Typeable` type class instance (see below), allowing, eg. vanilla `List[Any]`'s or `HList`'s with
-   * elements of type `Any` to be safely cast to precisely typed `HList`'s.
-   * These last three features make this `HList` dramatically more practically useful than `HList`'s are typically thought to be:
-   * normally the full type information required to work with them is too fragile to cross subtyping or I/O boundaries.
-   * This implementation supports the discarding of precise information where necessary.
-   * (eg. to serialize a precisely typed record after construction), and its later reconstruction.
-   * (eg. a weakly typed deserialized record with a known schema can have its precise typing reestablished).
+   * And it has a `Typeable` type class instance (see below), allowing, eg. vanilla `List[Any]`'s or
+   * `HList`'s with elements of type `Any` to be safely cast to precisely typed `HList`'s. These
+   * last three features make this `HList` dramatically more practically useful than `HList`'s are
+   * typically thought to be: normally the full type information required to work with them is too
+   * fragile to cross subtyping or I/O boundaries. This implementation supports the discarding of
+   * precise information where necessary. (eg. to serialize a precisely typed record after
+   * construction), and its later reconstruction. (eg. a weakly typed deserialized record with a
+   * known schema can have its precise typing reestablished).
    */
   def exerciseTypeable(res0: Option[APAP]) = {
     import syntax.typeable._

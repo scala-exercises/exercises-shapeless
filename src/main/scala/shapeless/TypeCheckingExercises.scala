@@ -22,11 +22,11 @@ import org.scalatest.matchers.should.Matchers
 import scala.util.Try
 
 /**
- * == Testing for non-compilation ==
+ * ==Testing for non-compilation==
  *
- * Libraries like shapeless which make extensive use of type-level computation and implicit resolution often need to
- * provide guarantees that certain expressions *don't* typecheck. Testing these guarantees is supported in shapeless via
- * the `illTyped` macro,
+ * Libraries like shapeless which make extensive use of type-level computation and implicit
+ * resolution often need to provide guarantees that certain expressions *don't* typecheck. Testing
+ * these guarantees is supported in shapeless via the `illTyped` macro,
  * {{{
  * import shapeless.test.illTyped
  *
@@ -38,7 +38,8 @@ import scala.util.Try
  * illTyped { """1+1 : Int""" }
  * }}}
  *
- * @param name type_checking
+ * @param name
+ *   type_checking
  */
 object TypeCheckingExercises
     extends AnyFlatSpec
@@ -46,9 +47,9 @@ object TypeCheckingExercises
     with org.scalaexercises.definitions.Section {
 
   /**
-   * The testing library ScalaTest also has a way of checking that a snippet of code
-   * does not compile: pass it in to `assertTypeError`. What will happen if we combine
-   * `illTyped` and `assertTypeError`? (Hint: it's like applying a double negative.)
+   * The testing library ScalaTest also has a way of checking that a snippet of code does not
+   * compile: pass it in to `assertTypeError`. What will happen if we combine `illTyped` and
+   * `assertTypeError`? (Hint: it's like applying a double negative.)
    */
   def typeCheckingTest(res0: Boolean, res1: Boolean) = {
 
