@@ -45,7 +45,7 @@ object HMapExercises extends AnyFlatSpec with Matchers with org.scalaexercises.d
     implicit val stringToInt = new BiMapIS[String, Int]
 
     val hm = HMap[BiMapIS](23 -> "foo", "bar" -> 13)
-    //val hm2 = HMap[BiMapIS](23 -> "foo", 23 -> 13)   // Does not compile
+    // val hm2 = HMap[BiMapIS](23 -> "foo", 23 -> 13)   // Does not compile
   }
 
   import Helper._

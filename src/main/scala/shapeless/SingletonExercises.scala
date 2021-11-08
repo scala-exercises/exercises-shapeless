@@ -86,17 +86,17 @@ object SingletonExercises
 
     select(true)(23) should be(res0)
 
-    //select(true)("foo")
-    //error: type mismatch;
+    // select(true)("foo")
+    // error: type mismatch;
     // found   : String("foo")
     // required: Int
     //              select(true)("foo")
     //                           ^
 
-    //select(false)(23)
+    // select(false)(23)
     // error: type mismatch;
-    //found   : Int(23)
-    //required: String
+    // found   : Int(23)
+    // required: String
 
     select(false)("foo") should be(res1)
   }
