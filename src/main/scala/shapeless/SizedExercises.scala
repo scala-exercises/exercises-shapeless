@@ -79,7 +79,7 @@ object SizedExercises
 
     // extendedHdrs has the wrong number of columns for rows
     val extendedHdrs = Sized("Title", "Author", "ISBN")
-    //val badFormatted = csv(extendedHdrs, rows)             // Does not compile
+    // val badFormatted = csv(extendedHdrs, rows)             // Does not compile
     res0 should be(1)
   }
 

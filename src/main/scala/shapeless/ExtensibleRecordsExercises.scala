@@ -93,7 +93,7 @@ object ExtensibleRecordsExercises
 
     noId.values should be(res2)
 
-    //noId("id")  // Attempting to access a missing field is a compile time error
+    // noId("id")  // Attempting to access a missing field is a compile time error
     // error: could not find implicit value for parameter selector ...
     //          noId("id")
   }
